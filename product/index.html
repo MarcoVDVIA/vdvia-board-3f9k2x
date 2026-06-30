@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>제품개발팀 대시보드 — Lemonderma</title>
+<style>
+  :root{
+    --bg:#faf9f5; --card:#ffffff; --ink:#1c1b18; --mut:#6b6a64; --line:#e6e3da;
+    --g:#1d9e75; --gb:#e1f5ee; --gd:#0f6e56;
+    --a:#ba7517; --ab:#faeeda; --ad:#854f0b;
+    --r:#e24b4a; --rb:#fcebeb; --rd:#a32d2d;
+  }
+  @media(prefers-color-scheme:dark){:root{--bg:#1b1a17;--card:#252420;--ink:#f1efe8;--mut:#a8a69d;--line:#3a382f;--gb:#0f3d31;--gd:#9fe1cb;--ab:#3d2c0a;--ad:#fac775;--rb:#3d1414;--rd:#f09595;}}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Noto Sans KR",sans-serif;line-height:1.6;padding:28px 20px;max-width:920px;margin:0 auto}
+  h1{font-size:21px;font-weight:600}
+  .sub{color:var(--mut);font-size:13px;margin-top:4px}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin-top:18px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 18px}
+  .lbl{font-size:12px;color:var(--mut);letter-spacing:.02em}
+  .big{font-size:32px;font-weight:600;margin-top:6px}
+  .big small{font-size:15px;color:var(--mut);font-weight:400}
+  .ch{font-size:11px;font-weight:600;padding:2px 8px;border-radius:20px;white-space:nowrap}
+  .g{background:var(--gb);color:var(--gd)} .a{background:var(--ab);color:var(--ad)} .r{background:var(--rb);color:var(--rd)}
+  table{width:100%;border-collapse:collapse;font-size:13px;margin-top:8px}
+  th,td{text-align:left;padding:7px 6px;border-bottom:1px solid var(--line)}
+  th{color:var(--mut);font-weight:500;font-size:11px}
+  td.n{text-align:right;font-variant-numeric:tabular-nums}
+  .full{grid-column:1/-1}
+  .row{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:8px 0;border-bottom:1px solid var(--line)}
+  .row:last-child{border-bottom:0}
+  .row .t{font-size:13px}
+  .dot{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:7px;vertical-align:middle}
+  .legend{font-size:11px;color:var(--mut);margin-top:10px}
+  .sig{font-size:15px;font-weight:600}
+  .dl{font-size:11px;font-weight:600;padding:2px 7px;border-radius:6px;margin-right:8px}
+</style>
+</head>
+<body>
+  <h1>제품개발팀 대시보드 <span class="ch a" style="vertical-align:middle">표준 5칸 · v1</span></h1>
+  <div class="sub">2026-06-30 · 전략기획 보고계약 레퍼런스 구현 · 출처: active-work.md · decisions-pending.md · products.md</div>
+
+  <div class="grid">
+    <div class="card">
+      <div class="lbl">① 북극성 기여 — 클레임 자산 readiness</div>
+      <div class="big">43% <small>3 / 7 확보</small></div>
+      <div class="legend">마케팅이 <b>바로 쓸 수 있는</b> 효능·인증 근거 비율. 제품이 아니라 "파는 무기"의 충족도.</div>
+    </div>
+
+    <div class="card">
+      <div class="lbl">③ 신호등</div>
+      <div class="sig" style="margin-top:6px"><span class="dot" style="background:var(--a)"></span>주의</div>
+      <div class="legend">기술·인증은 강함(10,000ppm·MFDS 이중기능·4국 인증). 하지만 <b>핵심 효능 임상 미확보</b> + 마스크 비건 PDRN P1 미해결 → 무기 절반.</div>
+    </div>
+
+    <div class="card">
+      <div class="lbl">④ 블로커 → CEO 결정큐</div>
+      <div style="margin-top:8px">
+        <div class="row"><span class="t"><span class="dl r">D-day</span>비건 PDRN 실재·INCI (마스크 진행/중단)</span></div>
+        <div class="row"><span class="t"><span class="dl r">6/26</span>엑소좀 ppm 상향 — COSMAX 2차 처방</span></div>
+        <div class="row"><span class="t"><span class="dl a">대기</span>코스맥스 사내임상 계약·일정</span></div>
+        <div class="row"><span class="t"><span class="dl a">대기</span>크림 List 정가 확정</span></div>
+      </div>
+      <div class="legend">P1 7건 중 CEO 결정 필요분. → ops_health 전사 결정큐로 합류.</div>
+    </div>
+
+    <div class="card full">
+      <div class="lbl">② 선행지표 — 목표 / 현재 / 추세</div>
+      <table>
+        <tr><th>지표</th><th class="n">목표</th><th class="n">현재</th><th class="n">추세</th><th class="n">데이터</th></tr>
+        <tr><td>클레임 자산 readiness</td><td class="n">100%</td><td class="n">43%</td><td class="n">— 첫측정</td><td class="n"><span class="ch g">측정</span></td></tr>
+        <tr><td>외부 임상 확보 (보습24h·코스맥스 세럼/크림)</td><td class="n">2건</td><td class="n">0건</td><td class="n">—</td><td class="n"><span class="ch r">깜깜</span></td></tr>
+        <tr><td>P1 결정 대기</td><td class="n">0건</td><td class="n">7건</td><td class="n">—</td><td class="n"><span class="ch g">측정</span></td></tr>
+        <tr><td>단상자·PDP 부채 (오타·정가)</td><td class="n">0건</td><td class="n">4건</td><td class="n">—</td><td class="n"><span class="ch g">측정</span></td></tr>
+      </table>
+      <div class="legend">추세 = 전주 대비 ▲▼. v1은 첫 측정이라 baseline. 다음 갱신부터 추세 표기.</div>
+    </div>
+
+    <div class="card full">
+      <div class="lbl">⑤ readiness 분해 + 측정 상태 — 클레임 무기 7종</div>
+      <div style="margin-top:8px">
+        <div class="row"><span class="t"><span class="dot" style="background:var(--g)"></span>미백 효능 (MFDS 이중기능)</span><span class="ch g">확보 · 측정</span></div>
+        <div class="row"><span class="t"><span class="dot" style="background:var(--g)"></span>주름 효능 (MFDS 이중기능)</span><span class="ch g">확보 · 측정</span></div>
+        <div class="row"><span class="t"><span class="dot" style="background:var(--g)"></span>시장 인증 (FDA·Dubai·SFDA·TH FDA)</span><span class="ch g">확보 · 측정</span></div>
+        <div class="row"><span class="t"><span class="dot" style="background:var(--a)"></span>엑소좀 효능 근거 (ppm 상향·NTA)</span><span class="ch a">진행중 · 추정</span></div>
+        <div class="row"><span class="t"><span class="dot" style="background:var(--r)"></span>보습 지속 24h 외부 임상</span><span class="ch r">미확보 · 깜깜</span></div>
+        <div class="row"><span class="t"><span class="dot" style="background:var(--r)"></span>세럼·크림 임상 수치 (코스맥스 사내임상)</span><span class="ch r">미계약 · 깜깜</span></div>
+        <div class="row"><span class="t"><span class="dot" style="background:var(--r)"></span>마스크 진정·회복 (비건 PDRN INCI)</span><span class="ch r">미확인 · 깜깜</span></div>
+      </div>
+      <div class="legend"><span class="dot" style="background:var(--g)"></span>확보(측정) &nbsp; <span class="dot" style="background:var(--a)"></span>진행중(추정) &nbsp; <span class="dot" style="background:var(--r)"></span>미확보(깜깜) &nbsp;—&nbsp; readiness를 🔴→🟢로 바꾸는 게 이 팀의 일.</div>
+    </div>
+
+    <div class="card full">
+      <div class="lbl">미션 A — 신제품 출시 파이프라인 (시장조사 기반)</div>
+      <table>
+        <tr><th>제품</th><th>단계</th><th>시장·근거</th><th>출시 목표</th><th>상태 / 블로커</th></tr>
+        <tr><td>Drying Lotion</td><td>Phase 2 (다음)</td><td>Lemon PDRN 진입 첫 SKU</td><td>11월</td><td><span class="ch a">포뮬러 미확정</span></td></tr>
+        <tr><td>Green Lemon Exo:PDRN Cica Mask</td><td>컨셉 lock</td><td>몽골 진입·진정 라인</td><td>급함</td><td><span class="ch r">비건PDRN·800원 원가 P1</span></td></tr>
+        <tr><td>Lemonshot 1000 (Lemon PDRN)</td><td>원료 타진</td><td>daily premium</td><td>2027</td><td><span class="ch a">P3 가능성 평가</span></td></tr>
+        <tr><td>XOMELLE 5-SKU</td><td>아키텍처</td><td>클리닉 B2B</td><td>—</td><td><span class="ch r">포뮬러·상표·임상 미진행</span></td></tr>
+        <tr><td>이너뷰티</td><td>보류</td><td>Inside-out</td><td>Phase 3+</td><td><span class="ch" style="background:var(--soft);color:var(--mut)">후순위</span></td></tr>
+      </table>
+      <div class="legend">신규 라인 = 원칙상 "미정" — 마스크 1 SKU 입증 후 확장. 시장조사→출시계획이 이 팀 미션 A.</div>
+    </div>
+
+    <div class="card full">
+      <div class="lbl">미션 B — 기존 제품 디벨롭 (4축)</div>
+      <div style="margin-top:8px">
+        <div class="row"><span class="t"><span class="dot" style="background:var(--a)"></span>엑소좀 함량(ppm) 상향 — 기존 2 SKU</span><span class="ch a">진행중 · COSMAX 2차 처방 6/26</span></div>
+        <div class="row"><span class="t"><span class="dot" style="background:var(--r)"></span>효능 (임상)</span><span class="ch r">정체 · 사내임상 미계약·24h 외부 예정</span></div>
+        <div class="row"><span class="t"><span class="dot" style="background:var(--r)"></span>용기·제형</span><span class="ch r">단상자 문안 검수 P1 · 크림 정가 미확정</span></div>
+        <div class="row"><span class="t"><span class="dot" style="background:var(--r)"></span>단가 절감</span><span class="ch r">추적 항목 신설 — 체계 없음 🔴깜깜</span></div>
+      </div>
+      <div class="legend">미션 B의 4축 중 ppm만 진행. <b>용기·제형·단가절감은 이번에 추적 시작</b> — 그동안 사각이었음. 단가절감은 50_operations 마진계산과 연동.</div>
+    </div>
+  </div>
+</body>
+</html>

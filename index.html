@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VDVIA 전략기획 메인 대시보드 (L1)</title>
+<style>
+  :root{
+    --bg:#faf9f5; --card:#ffffff; --ink:#1c1b18; --mut:#6b6a64; --line:#e6e3da; --soft:#f1efe8;
+    --g:#1d9e75; --gb:#e1f5ee; --gd:#0f6e56;
+    --a:#ba7517; --ab:#faeeda; --ad:#854f0b;
+    --r:#e24b4a; --rb:#fcebeb; --rd:#a32d2d;
+    --b:#185fa5; --bb:#e6f1fb; --bd:#0c447c;
+  }
+  @media(prefers-color-scheme:dark){:root{--bg:#1b1a17;--card:#252420;--ink:#f1efe8;--mut:#a8a69d;--line:#3a382f;--soft:#2c2b27;--gb:#0f3d31;--gd:#9fe1cb;--ab:#3d2c0a;--ad:#fac775;--rb:#3d1414;--rd:#f09595;--bb:#0c2e4f;--bd:#b5d4f4;}}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Noto Sans KR",sans-serif;line-height:1.6;padding:28px 20px;max-width:1040px;margin:0 auto}
+  h1{font-size:22px;font-weight:600}
+  h2{font-size:14px;font-weight:600;color:var(--mut);letter-spacing:.03em;text-transform:uppercase;margin:26px 0 12px}
+  .sub{color:var(--mut);font-size:13px;margin-top:4px}
+  .grid{display:grid;gap:14px}
+  .g3{grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+  .g2{grid-template-columns:repeat(auto-fit,minmax(320px,1fr))}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 18px}
+  .lbl{font-size:12px;color:var(--mut)}
+  .sig{font-size:16px;font-weight:600;margin-top:6px;display:flex;align-items:center;gap:8px}
+  .dot{display:inline-block;width:10px;height:10px;border-radius:50%}
+  .legend{font-size:11.5px;color:var(--mut);margin-top:8px}
+  .ch{font-size:10.5px;font-weight:600;padding:2px 7px;border-radius:20px;white-space:nowrap;vertical-align:middle}
+  .g_{background:var(--gb);color:var(--gd)} .a_{background:var(--ab);color:var(--ad)} .r_{background:var(--rb);color:var(--rd)} .b_{background:var(--bb);color:var(--bd)}
+  .ladder{display:flex;gap:6px;align-items:stretch;flex-wrap:wrap}
+  .step{flex:1;min-width:120px;border:1px solid var(--line);border-radius:10px;padding:9px 10px}
+  .step.now{background:var(--bb);border-color:transparent}
+  .step .k{font-size:11px;color:var(--mut)} .step.now .k{color:var(--bd)}
+  .step .v{font-size:14px;font-weight:600} .step.now .v{color:var(--bd)}
+  .step.stretch{background:var(--soft);border-color:transparent}
+  .dq .row{display:flex;gap:10px;align-items:flex-start;padding:8px 0;border-bottom:1px solid var(--line)}
+  .dq .row:last-child{border-bottom:0}
+  .tag{font-size:11px;font-weight:600;padding:2px 8px;border-radius:6px;white-space:nowrap}
+  .team{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:0;overflow:hidden}
+  .team .hd{display:flex;align-items:center;justify-content:space-between;padding:13px 16px;border-bottom:1px solid var(--line);background:var(--soft)}
+  .team .hd .nm{font-size:14px;font-weight:600}
+  .team .bd{padding:14px 16px}
+  .ns{display:flex;align-items:baseline;gap:8px}
+  .ns .num{font-size:26px;font-weight:600}
+  .ns .u{font-size:12px;color:var(--mut)}
+  .mini{font-size:12.5px;margin-top:10px}
+  .mini .ln{display:flex;justify-content:space-between;gap:8px;padding:4px 0;border-top:1px dashed var(--line)}
+  .mini .ln:first-of-type{border-top:0}
+  .blk{font-size:12px;color:var(--rd);margin-top:10px}
+  a.full{font-size:12px;color:var(--b);text-decoration:none}
+  a.full:hover{text-decoration:underline}
+  .foot{font-size:11.5px;color:var(--mut);margin-top:26px;border-top:1px solid var(--line);padding-top:14px}
+</style>
+</head>
+<body>
+  <h1>VDVIA 전략기획 메인 대시보드 <span class="ch b_">L1 · CEO 콕핏</span></h1>
+  <div class="sub">2026-06-30 · 전략기획 신스 레이어(CEO 직속) · 각 팀 표준 5칸을 한 장으로 정렬 · 데이터 = 이번 세션 실측</div>
+
+  <h2>전사 신호등</h2>
+  <div class="grid g3">
+    <div class="card">
+      <div class="lbl">현금</div>
+      <div class="sig"><span class="dot" style="background:var(--a)"></span>주의</div>
+      <div class="legend">물류바우처 450만 입금 <b>D-10 (7/10)</b> · 월 burn 미산출</div>
+    </div>
+    <div class="card">
+      <div class="lbl">전환</div>
+      <div class="sig"><span class="dot" style="background:var(--r)"></span>적신호</div>
+      <div class="legend">Amazon 누적 ~$473 / 4.5개월 · MER 1.0× (본전 1.75 미달)</div>
+    </div>
+    <div class="card">
+      <div class="lbl">방향</div>
+      <div class="sig"><span class="dot" style="background:var(--r)"></span>적신호</div>
+      <div class="legend">측정 단절 — 채널효율·런웨이 산출 불가 · UAE 7/13 조기확장 임박</div>
+    </div>
+  </div>
+
+  <h2>1000억 궤도 사다리</h2>
+  <div class="card">
+    <div class="ladder">
+      <div class="step now"><div class="k">현재 런레이트</div><div class="v">~연 170만</div></div>
+      <div class="step"><div class="k">Y1 2026</div><div class="v">3억</div></div>
+      <div class="step"><div class="k">Y2 2027</div><div class="v">15~25억</div></div>
+      <div class="step"><div class="k">Y3 2028</div><div class="v">60~100억</div></div>
+      <div class="step stretch"><div class="k">Stretch</div><div class="v">1000억</div></div>
+    </div>
+    <div class="legend">갭을 매일 직시 → 런레이트가 필요선 아래면 자동 적신호 → 결정큐 승격. 일일 실행이 북극성에 연결되는지 매 팀 카드가 강제.</div>
+  </div>
+
+  <h2>지금 결정할 것 · 전략팀이 올림</h2>
+  <div class="card dq">
+    <div class="row"><span class="tag r_">D-13</span><span>UAE 7/13 확장에 <b>검증 게이트</b> 걸까? (US ROAS≥1.75 재현 전 보류)</span></div>
+    <div class="row"><span class="tag a_">전사</span><span>Q3 OKR(측정→전환→재고)을 <b>회사 OKR로 격상</b>할까?</span></div>
+    <div class="row"><span class="tag r_">6월말</span><span>비건 PDRN 실재 확인 — <b>마스크팩 진행/중단</b> last-call</span></div>
+  </div>
+
+  <h2>팀별 5칸 요약 — 한 장 정렬</h2>
+  <div class="grid g2">
+
+    <div class="team">
+      <div class="hd"><span class="nm">제품성장 · 30</span><span class="sig" style="font-size:13px;margin:0"><span class="dot" style="background:var(--a)"></span>주의</span></div>
+      <div class="bd">
+        <div class="lbl">① 북극성 — 주간 유료 순매출</div>
+        <div class="ns"><span class="num">$779</span><span class="u">/주</span><span class="ch a_">추정</span></div>
+        <div class="mini">
+          <div class="ln"><span>ROAS (목표 1.75)</span><span>0.88 ▼ <span class="ch g_">측정</span></span></div>
+          <div class="ln"><span>MER (본전 1.9)</span><span>1.0 <span class="ch r_">적자</span></span></div>
+        </div>
+        <div class="blk">④ 블로커: 전환율 게이트 — 증액/축소 분기 (7/3)</div>
+        <a class="full" href="../../30_growth/marketing/us/performance/reports/2026-06-29-weekly/index.html">전체 리포트 →</a>
+      </div>
+    </div>
+
+    <div class="team">
+      <div class="hd"><span class="nm">제품개발 · 20</span><span class="sig" style="font-size:13px;margin:0"><span class="dot" style="background:var(--a)"></span>주의</span></div>
+      <div class="bd">
+        <div class="lbl">① 북극성 — 클레임 자산 readiness</div>
+        <div class="ns"><span class="num">43%</span><span class="u">3 / 7 확보</span><span class="ch g_">측정</span></div>
+        <div class="mini">
+          <div class="ln"><span>외부 임상 확보</span><span>0 / 2건 <span class="ch r_">깜깜</span></span></div>
+          <div class="ln"><span>P1 결정 대기</span><span>7건 <span class="ch g_">측정</span></span></div>
+        </div>
+        <div class="blk">④ 블로커: 비건 PDRN 실재 · 엑소좀 ppm (6/26)</div>
+        <a class="full" href="/product">전체 대시보드 →</a>
+      </div>
+    </div>
+
+    <div class="team">
+      <div class="hd"><span class="nm">해외영업 · 40</span><span class="sig" style="font-size:13px;margin:0"><span class="dot" style="background:var(--r)"></span>위험</span></div>
+      <div class="bd">
+        <div class="lbl">① 북극성 — B2B 파이프라인 $ · 체결 PO</div>
+        <div class="ns"><span class="num">$—</span><span class="u">/ PO 1건</span><span class="ch r_">깜깜</span></div>
+        <div class="mini">
+          <div class="ln"><span>warm-up 발송</span><span>0건 <span class="ch r_">정지</span></span></div>
+          <div class="ln"><span>박람회 자산 (적합도≥65)</span><span>21곳 <span class="ch g_">측정</span></span></div>
+        </div>
+        <div class="blk">④ 블로커: API키·CRM 토큰 미발급 — 엔진 정지</div>
+        <a class="full" href="/sales">전체 대시보드 →</a>
+      </div>
+    </div>
+
+    <div class="team">
+      <div class="hd"><span class="nm">경영지원 · 50</span><span class="sig" style="font-size:13px;margin:0"><span class="dot" style="background:var(--a)"></span>주의</span></div>
+      <div class="bd">
+        <div class="lbl">① 북극성 — 정부지원·서류SLA·재고 (3축)</div>
+        <div class="ns"><span class="num">2/3</span><span class="u">축 가동</span><span class="ch g_">측정</span></div>
+        <div class="mini">
+          <div class="ln"><span>정부지원 확보</span><span>2건·₩7천만 <span class="ch g_">측정</span></span></div>
+          <div class="ln"><span>재고 가시성</span><span>4,108개 <span class="ch g_">측정</span></span></div>
+          <div class="ln"><span>물류서류 CIPL/PI 자동</span><span>미구축 <span class="ch r_">깜깜</span></span></div>
+        </div>
+        <div class="blk">④ 블로커: CIPL/PI 서류 자동화 미구축 (백로그 등록) · 예산=대표 별도</div>
+        <a class="full" href="/ops">ops_health (운영 L1) →</a>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="foot">
+    정렬 원칙: 모든 팀이 <b>표준 5칸</b>(①북극성 ②선행지표 목표/실제/추세 ③신호등 ④블로커→결정큐 ⑤측정배지)으로 보고 → 이 페이지가 한 장으로 종합.
+    측정배지 <span class="ch g_">측정</span><span class="ch a_">추정</span><span class="ch r_">깜깜</span> — 🔴이 회사가 눈 감은 지점. O1(측정 복구) 진척 = 🔴→🟢 전환.
+    계약: <a class="full" href="팀-대시보드-보고계약.md">팀-대시보드-보고계약.md</a> · 설계: <a class="full" href="dashboard-system.md">dashboard-system.md</a> · 제품성장 대시보드는 미수정(읽기 전용 연결).
+  </div>
+</body>
+</html>
