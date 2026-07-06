@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VDVIA 월간 리뷰 — 6월 회고 · 7월 다짐</title>
+<style>
+  :root{
+    --bg:#faf9f5; --card:#ffffff; --ink:#1c1b18; --mut:#6b6a64; --line:#e6e3da; --soft:#f1efe8;
+    --g:#1d9e75; --gb:#e1f5ee; --gd:#0f6e56;
+    --a:#ba7517; --ab:#faeeda; --ad:#854f0b;
+    --r:#e24b4a; --rb:#fcebeb; --rd:#a32d2d;
+    --b:#185fa5; --bb:#e6f1fb; --bd:#0c447c;
+  }
+  @media(prefers-color-scheme:dark){:root{--bg:#1b1a17;--card:#252420;--ink:#f1efe8;--mut:#a8a69d;--line:#3a382f;--soft:#2c2b27;--gb:#0f3d31;--gd:#9fe1cb;--ab:#3d2c0a;--ad:#fac775;--rb:#3d1414;--rd:#f09595;--bb:#0c2e4f;--bd:#b5d4f4;}}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Noto Sans KR",sans-serif;line-height:1.55;padding:26px 20px 46px;max-width:1060px;margin:0 auto}
+  h1{font-size:22px;font-weight:700;letter-spacing:-.01em}
+  h2{font-size:12.5px;font-weight:700;color:var(--mut);letter-spacing:.06em;text-transform:uppercase;margin:26px 0 10px}
+  .sub{color:var(--mut);font-size:12.5px;margin-top:3px}
+  .grid{display:grid;gap:12px}
+  .g2{grid-template-columns:repeat(auto-fit,minmax(330px,1fr))}
+  .g3{grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 17px}
+  .lbl{font-size:11.5px;color:var(--mut);font-weight:600;letter-spacing:.02em}
+  .big{font-size:26px;font-weight:700;letter-spacing:-.01em}
+  .big small{font-size:12px;color:var(--mut);font-weight:500}
+  .ch{font-size:10.5px;font-weight:700;padding:2px 8px;border-radius:20px;white-space:nowrap;vertical-align:middle}
+  .g_{background:var(--gb);color:var(--gd)} .a_{background:var(--ab);color:var(--ad)} .r_{background:var(--rb);color:var(--rd)} .b_{background:var(--bb);color:var(--bd)}
+  .why{font-size:12px;color:var(--mut);margin-top:5px;line-height:1.5}
+  /* hero */
+  .hero{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin-top:14px}
+  .hero .line{font-size:16.5px;font-weight:700;line-height:1.5}
+  /* amazon bars */
+  .bars{display:flex;gap:14px;align-items:flex-end;height:110px;margin-top:14px;padding:0 4px}
+  .bar{flex:1;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;gap:5px}
+  .bar i{display:block;width:100%;max-width:86px;background:var(--b);border-radius:6px 6px 0 0}
+  .bar.jul i{background:var(--g)}
+  .bar b{font-size:12px}
+  .bar span{font-size:10.5px;color:var(--mut)}
+  /* 회고 팀 카드 */
+  .team{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+  .team .hd{display:flex;align-items:center;justify-content:space-between;padding:10px 15px;border-bottom:1px solid var(--line);background:var(--soft);font-size:13.5px;font-weight:700}
+  .team .bd{padding:11px 15px 13px;font-size:12.6px}
+  .team .bd .ok{margin-bottom:7px}
+  .team .bd .ok b{color:var(--gd)}
+  .team .bd .no b{color:var(--rd)}
+  /* 교훈 */
+  .lesson{display:flex;gap:12px;align-items:flex-start;padding:9px 0;border-bottom:1px solid var(--line);font-size:13.5px}
+  .lesson:last-child{border-bottom:0}
+  .lesson .n{flex:none;width:26px;height:26px;border-radius:50%;background:var(--bb);color:var(--bd);font-weight:700;font-size:13px;display:flex;align-items:center;justify-content:center}
+  /* 7월 다짐 표 */
+  .tbl{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:auto}
+  table{width:100%;border-collapse:collapse;font-size:12.8px}
+  th{text-align:left;padding:9px 13px;color:var(--mut);font-weight:600;font-size:11px;text-transform:uppercase;letter-spacing:.04em;border-bottom:1px solid var(--line);background:var(--soft);white-space:nowrap}
+  td{padding:10px 13px;border-bottom:1px solid var(--line);vertical-align:top}
+  tr:last-child td{border-bottom:0}
+  td.nm{font-weight:700;white-space:nowrap}
+  /* 마일스톤·결정 */
+  .ms{display:flex;gap:10px;flex-wrap:wrap}
+  .ms .m{flex:1;min-width:150px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:10px 13px;font-size:12.5px}
+  .ms .m b{display:block;font-size:13px}
+  .dq .row{display:flex;gap:10px;align-items:flex-start;padding:9px 0;border-bottom:1px solid var(--line);font-size:13.5px}
+  .dq .row:last-child{border-bottom:0}
+  .tag{font-size:11px;font-weight:700;padding:2px 8px;border-radius:6px;white-space:nowrap;flex:none;margin-top:1px}
+  .foot{font-size:11px;color:var(--mut);margin-top:26px;border-top:1px solid var(--line);padding-top:12px;line-height:1.7}
+  a.full{font-size:11.5px;color:var(--b);text-decoration:none;font-weight:600}
+</style>
+</head>
+<body>
+  <h1>VDVIA 월간 리뷰 <span class="ch b_">6월 회고 · 7월 다짐</span></h1>
+  <div class="sub">2026-07-05 · 전사 · 데이터 = Amazon SP-API·CGETC ERP 실측 · 전략기획 작성</div>
+
+  <div class="hero">
+    <div class="lbl">숫자 한 줄</div>
+    <div class="line">6월 매출 ~₩2.7M = 플랜 목표의 <span style="color:var(--rd)">21%</span> · Y1 진척 <span style="color:var(--rd)">12%</span> — 뒤처졌다.<br>그러나 <span style="color:var(--gd)">Amazon이 3개월 연속 ~4배 성장</span> — 유일한, 그리고 진짜인 불씨.</div>
+    <div class="bars">
+      <div class="bar"><i style="height:4px"></i><b>$28</b><span>4월</span></div>
+      <div class="bar"><i style="height:26px"></i><b>$439</b><span>5월</span></div>
+      <div class="bar"><i style="height:72px"></i><b>$1,668</b><span>6월</span></div>
+      <div class="bar jul"><i style="height:34px"></i><b>$752</b><span>7월 (나흘)</span></div>
+    </div>
+    <div class="why">7월은 나흘 만에 5월 전체를 넘김 — 월환산 ~$5.6K 페이스. 이 성장의 원인을 증명·재현하는 게 7월의 전부.</div>
+  </div>
+
+  <h2>6월 회고 — 팀별</h2>
+  <div class="grid g2">
+    <div class="team">
+      <div class="hd"><span>제품성장 · 30</span><span class="ch a_">⚠ 실행 온타임 · 결과 미달</span></div>
+      <div class="bd">
+        <div class="ok">✅ <b>M3 "LASER IN A BOTTLE" 발견</b> — 유일하게 작동하는 메시지 · 소재 425개 온타임 집행 · 메타 픽셀·어트리뷰션 인프라 구축</div>
+        <div class="no">🔴 MER 1.0 (본전 1.9 미달) · D2C 6월 2건 · TikTok 0건 · 시딩 귀속 추적 없음</div>
+      </div>
+    </div>
+    <div class="team">
+      <div class="hd"><span>제품개발 · 20</span><span class="ch a_">⚠ 컨셉 강함 · 결정 적체</span></div>
+      <div class="bd">
+        <div class="ok">✅ 마스크팩 컨셉 lock (Green Lemon Exo:PDRN Cica) · 코스맥스 사내임상 항목 확정 · Drying Lotion Phase2 확정</div>
+        <div class="no">🔴 P1 결정 7건 적체 (비건PDRN·엑소좀ppm <b>기한 경과</b>) · 외부임상 0건 착수</div>
+      </div>
+    </div>
+    <div class="team">
+      <div class="hd"><span>해외영업 · 40</span><span class="ch r_">🔴 설계 완료 · 엔진 정지</span></div>
+      <div class="bd">
+        <div class="ok">✅ 3-Star 시장(태·러·UAE) 확정 · Apollo 파이프라인·CRM 스키마 설계 완료 · 박람회 50개 자산화(적합도≥65 = 21곳)</div>
+        <div class="no">🔴 컨택 발송 <b>0건 — 한 달 내내 정지</b> (API키 미발급) · 파이프라인 $ 미기록</div>
+      </div>
+    </div>
+    <div class="team">
+      <div class="hd"><span>경영지원 · 50</span><span class="ch g_">🟢 자동화 견고 · 서류 갭</span></div>
+      <div class="bd">
+        <div class="ok">✅ <b>정부지원 2건 선정 (₩7천만)</b> · Amazon P&amp;L·재고·ERP 자동화 안정 가동 · 마진 74% 유지</div>
+        <div class="no">🔴 CIPL/PI 수출서류 자동화 미구축 · 재고 4,084개(₩18M+) 회전 정체</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" style="margin-top:12px">
+    <div class="lbl">전사 — 6월에 새로 생긴 것</div>
+    <div class="why" style="font-size:13px;color:var(--ink)">전략기획팀 신설 · 병목 진단(실측) · 4팀 대시보드 + L1 콕핏 + 매일 8시 자동 보고 체계 · 팀별 노션 일정 — <b>8월 미팅부터는 "약속 vs 실측"이 자동으로 나온다.</b></div>
+  </div>
+
+  <h2>6월이 가르쳐준 것</h2>
+  <div class="card">
+    <div class="lesson"><span class="n">1</span><span><b>나눠주는 건 매출이 안 됐다.</b> H1 출고 795건 중 유료 D2C 5건 — 시딩·임프레션은 매출로 자동 전환되지 않는다.</span></div>
+    <div class="lesson"><span class="n">2</span><span><b>측정 없이는 못 고친다.</b> 깜깜 지표 5개 — "왜 Amazon만 크는가"조차 정밀하게 답할 수 없다.</span></div>
+    <div class="lesson"><span class="n">3</span><span><b>그래도 불씨는 진짜다.</b> Amazon 3개월 연속 성장 = 리뷰·메시지·리스팅 개선의 복리로 추정 — Q3는 여기에 집중한다.</span></div>
+  </div>
+
+  <h2>7월 다짐 — 전사 테마</h2>
+  <div class="card" style="border-left:none">
+    <div class="line" style="font-size:16px;font-weight:700">"Amazon 불씨를 증명하고, 회사가 눈을 뜬다."</div>
+    <div class="why">성공하면 Y1 플랜 유지, 실패하면 10월 현실 재조정 — <b>7월이 판정의 달.</b></div>
+  </div>
+
+  <h2>팀별 약속 — 월말 판정 기준 포함</h2>
+  <div class="tbl">
+    <table>
+      <tr><th>팀</th><th>7월 약속</th><th>월말 판정 기준</th></tr>
+      <tr><td class="nm">제품성장</td><td>Amazon 페이스 유지·가속 + MER 본전 접근 + 시딩 귀속코드 도입</td><td>FBA ≥ <b>$5K</b> · MER 추세 상승 · 신규 시딩 100% 코드</td></tr>
+      <tr><td class="nm">제품개발</td><td>기한 지난 P1 2건 즉결 + 임상 계약 1건 착수</td><td>P1 7건 → <b>≤4건</b> · 외부임상 0→<b>1 착수</b></td></tr>
+      <tr><td class="nm">해외영업</td><td><b>엔진 시동</b> — API키 4종 발급 → 첫 컨택 발송</td><td>주간 컨택 0 → <b>첫 발송 기록</b> · CRM 파트너 2곳 시드</td></tr>
+      <tr><td class="nm">경영지원</td><td>7/10 바우처 사수 + 재고 2,000개 행선지 + CIPL/PI 착수</td><td>데드라인 미스 <b>0</b> · 행선지 확정 · 서류 자동화 v1</td></tr>
+      <tr><td class="nm">전략기획</td><td>측정 복구 — Shopify 연결 + 귀속 체계</td><td>깜깜 지표 5 → <b>3</b> · 주간 예외보고 4회</td></tr>
+    </table>
+  </div>
+
+  <h2>7월 캘린더</h2>
+  <div class="ms">
+    <div class="m"><b>7/10</b>물류바우처 분담금 입금 마감 (미입금 = 포기)</div>
+    <div class="m"><b>7/13</b>UAE 확장 예정일 — 검증 게이트 적용</div>
+    <div class="m"><b>7/25</b>Monthly Review — 이 약속들 판정</div>
+  </div>
+
+  <h2>미팅에서 정할 결정 3개</h2>
+  <div class="card dq">
+    <div class="row"><span class="tag r_">지금</span><span><b>비건 PDRN</b> — 마스크팩 진행/중단 (기한 지남)</span></div>
+    <div class="row"><span class="tag r_">D-8</span><span><b>UAE 게이트</b> — US 공식(ROAS≥1.75) 증명 전 대액 보류 채택 여부</span></div>
+    <div class="row"><span class="tag a_">합의</span><span><b>Y1 3억</b> — 7월 결과 보고 10월 초 유지/재조정 판정에 합의</span></div>
+  </div>
+
+  <div class="foot">
+    출처: Amazon SP-API·CGETC ERP (2026-07-05 추출) · 광고 효율 = 성장팀 주간리포트 · Shopify 미연결(D2C 퍼널 미실측 — 7월 복구 대상).
+    상시 현황: <a class="full" href="https://marcovdvia.github.io/vdvia-board-3f9k2x/">L1 대시보드</a> · 정본: GitHub 10_strategy/dashboard/2026-07-월간미팅-브리핑.md
+  </div>
+</body>
+</html>
