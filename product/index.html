@@ -27,9 +27,11 @@
   .g_{background:var(--gb);color:var(--gd)} .a_{background:var(--ab);color:var(--ad)} .r_{background:var(--rb);color:var(--rd)} .b_{background:var(--bb);color:var(--bd)}
   .big{font-size:25px;font-weight:700;letter-spacing:-.01em}
   .big small{font-size:12px;color:var(--mut);font-weight:500}
-  /* 팀 뼈대 지표 스트립 */
+  /* ② 선행지표 — 목표/현재/추세 3종 세트 */
   .own{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px;margin-top:14px}
   .own .card{border-top:3px solid var(--bd);border-radius:0 0 14px 14px}
+  .tgt{display:flex;gap:14px;font-size:12px;color:var(--mut);margin-top:6px}
+  .tgt b{color:var(--ink)}
   /* 신호등·판정 */
   .sig{display:flex;align-items:center;gap:8px;font-size:15px;font-weight:700;margin-top:5px}
   .why{font-size:12px;color:var(--mut);margin-top:5px;line-height:1.5}
@@ -55,41 +57,16 @@
 </head>
 <body>
   <h1>제품개발팀 대시보드 <span class="ch b_">L1</span> <span class="ch g_">전략기획 관리</span></h1>
-  <div class="sub">2026-07-02 · 산출물 = 파는 쪽이 그대로 쓸 수 있는 무기(근거·인증·스펙) · 출처: active-work.md · decisions-pending.md</div>
+  <div class="sub">2026-07-07 · 산출물 = 파는 쪽이 그대로 쓸 수 있는 무기(근거·인증·스펙) · 데이터 풀 지도: <a class="full" href="README.md">README.md</a> · 수기 정본 = 이 화면 + team-card.json (동시 갱신)</div>
 
-  <!-- ① 팀 뼈대 수치 스트립 -->
-  <div class="own">
-    <div class="card">
-      <div class="lbl">외부 임상 확보</div>
-      <div class="big">0<small> / 2건 🔴</small></div>
-      <div class="why">보습 24h 외부기관 · 코스맥스 사내임상(세럼·크림). <b>둘 다 미착수 — 늘면 맞는 방향.</b> <span class="ch r_">깜깜</span></div>
-    </div>
-    <div class="card">
-      <div class="lbl">신제품 파이프라인 통과</div>
-      <div class="big" style="font-size:19px;padding-top:4px">마스크 P1 대기 🟡</div>
-      <div class="why">컨셉 lock 완료·생산 실무 미확정. <b>P1 풀리면 맞는 방향.</b> <span class="ch a_">추정</span></div>
-    </div>
-    <div class="card">
-      <div class="lbl">P1 결정 대기 (↓ = 건강)</div>
-      <div class="big">7<small> 건 🟢 · 기한 지남 2건</small></div>
-      <div class="why">엑소좀 ppm(6/26 경과) · 비건 PDRN(6월말 last-call 경과). <b>줄면 맞는 방향.</b> <span class="ch g_">측정</span></div>
-    </div>
-  </div>
-
-  <div class="card" style="margin-top:12px">
-    <div class="lbl">방향 판정</div>
-    <div class="sig"><span class="dot" style="background:var(--a)"></span>⚠ 주의</div>
-    <div class="why">기술·인증은 강함(10,000ppm · MFDS 이중기능 · 4국 인증). 하지만 <b>P1 적체 7건 · 임상 정체가 지속되면 어긋남</b> — 무기 절반 상태.</div>
-  </div>
-
-  <!-- ② 북극성 -->
-  <h2>북극성 — 클레임 자산 readiness</h2>
+  <!-- ① 북극성 (맨 위 고정) -->
+  <h2>① 북극성 — 클레임 자산 readiness</h2>
   <div class="grid g2">
     <div class="card">
       <div class="lbl">마케팅이 바로 쓸 수 있는 효능·인증 근거 비율</div>
       <div class="big">43%<small> (3 / 7 확보)</small> <span class="ch g_">측정</span></div>
-      <div class="why">제품이 아니라 <b>"파는 무기"의 충족도</b>. 🔴을 🟢로 바꾸는 게 이 팀의 일. v1 첫 측정 = baseline, 다음 갱신부터 추세 표기.</div>
-      <div class="verdict">판정: 확보 3종은 전부 <b>기존 인증 자산</b> — 신규 임상·근거는 아직 0. 임상 2건 착수가 readiness를 움직이는 유일한 레버.</div>
+      <div class="tgt"><span>목표 <b>100% (7/7)</b></span><span>현재 <b>43%</b></span><span>추세 <b>→</b> (7/2 baseline 대비 변동 없음)</span></div>
+      <div class="verdict">판정: 확보 3종은 전부 <b>기존 인증 자산</b> — 신규 임상·근거는 아직 0. 임상 2건 착수가 readiness를 움직이는 유일한 레버. 🆕 시장조사(7월): 비건 PDRN은 시장에 실재·상승 트렌드 → 리스크 완화, <b>INCI 확인만 남음</b>.</div>
     </div>
     <div class="card">
       <div class="lbl">클레임 무기 7종 분해 — 🟢3 확보 · 🟡1 진행 · 🔴3 미확보</div>
@@ -105,13 +82,43 @@
     </div>
   </div>
 
-  <!-- ③ 미션 A -->
+  <!-- ② 선행지표 — 목표/현재/추세 -->
+  <h2>② 선행지표 — 목표 / 현재 / 추세</h2>
+  <div class="own" style="margin-top:0">
+    <div class="card">
+      <div class="lbl">외부 임상 착수</div>
+      <div class="big">0<small> / 2건 🔴</small></div>
+      <div class="tgt"><span>목표 <b>2건</b></span><span>현재 <b>0</b></span><span>추세 <b>→</b></span></div>
+      <div class="why">보습 24h 외부기관 + 코스맥스 사내임상(항목 확정, 계약 미체결). <b>늘면 맞는 방향.</b> <span class="ch r_">깜깜</span></div>
+    </div>
+    <div class="card">
+      <div class="lbl">P1 결정 적체 (↓ = 건강)</div>
+      <div class="big">7<small> 건 · 기한 지남 2건</small></div>
+      <div class="tgt"><span>목표 <b>0</b></span><span>현재 <b>7</b></span><span>추세 <b>→</b> (7/2 대비 동일)</span></div>
+      <div class="why">엑소좀 ppm(6/26 경과) · 비건 PDRN(6월말 last-call 경과). <b>5일째 해소 0건.</b> <span class="ch g_">측정</span></div>
+    </div>
+    <div class="card">
+      <div class="lbl">신제품 게이트 — 마스크 (메조팜)</div>
+      <div class="big" style="font-size:19px;padding-top:4px">컨셉 lock · 생산 대기 🟡</div>
+      <div class="tgt"><span>목표 <b>발주 확정</b></span><span>현재 <b>컨셉 lock</b></span><span>추세 <b>→</b></span></div>
+      <div class="why">비건 PDRN INCI + 400원 원가 검증이 게이트. <b>P1 풀리면 맞는 방향.</b> <span class="ch a_">추정</span></div>
+    </div>
+  </div>
+
+  <!-- ③ 신호등 -->
+  <h2>③ 신호등 — 자가판정</h2>
+  <div class="card">
+    <div class="sig"><span class="dot" style="background:var(--a)"></span>⚠ 주의</div>
+    <div class="why">기술·인증은 강함(10,000ppm · MFDS 이중기능 · 4국 인증). 하지만 <b>P1 적체 7건이 5일째 변동 없고 임상 착수 0</b> — 무기 절반 상태 지속. 파트너(Zishel·COSMAX·메조팜) 회신 대기가 병목: 회신 추적 수단이 수동(메일 눈확인)뿐.</div>
+  </div>
+
+  <!-- 미션 A -->
   <h2>미션 A — 신제품 출시 파이프라인 (시장조사 기반)</h2>
   <div class="card">
     <table>
       <tr><th>제품</th><th>단계</th><th>시장·근거</th><th>출시 목표</th><th>상태 / 블로커</th></tr>
+      <tr><td><b>Green Lemon Exo:PDRN Cica Mask</b></td><td>컨셉 lock · 메조팜</td><td>몽골 진입 · 진정 라인 · 비건 PDRN 트렌드 순풍</td><td>급함</td><td><span class="ch r_">비건PDRN INCI·400원 원가 P1</span></td></tr>
       <tr><td><b>Drying Lotion</b></td><td>Phase 2 (다음)</td><td>Lemon PDRN 진입 첫 SKU</td><td>11월</td><td><span class="ch a_">포뮬러 미확정</span></td></tr>
-      <tr><td><b>Green Lemon Exo:PDRN Cica Mask</b></td><td>컨셉 lock · 메조팜</td><td>몽골 진입 · 진정 라인</td><td>급함</td><td><span class="ch r_">비건PDRN·800원 원가 P1</span></td></tr>
       <tr><td><b>Lemonshot 1000</b> (Lemon PDRN)</td><td>원료 타진</td><td>daily premium</td><td>2027</td><td><span class="ch a_">P3 가능성 평가</span></td></tr>
       <tr><td><b>XOMELLE&amp;CO 5-SKU</b></td><td>아키텍처 확정</td><td>클리닉 B2B</td><td>—</td><td><span class="ch r_">포뮬러·상표·임상 미진행</span></td></tr>
       <tr><td><b>이너뷰티</b></td><td>보류</td><td>Inside-out</td><td>Phase 3+</td><td><span class="ch" style="background:var(--soft);color:var(--mut)">후순위</span></td></tr>
@@ -119,20 +126,20 @@
     <div class="why" style="margin-top:8px">신규 라인 = 원칙상 "미정" — <b>마스크 1 SKU 입증 후 확장</b>. 마스크만 doctrine 예외(Marco 우선순위).</div>
   </div>
 
-  <!-- ④ 미션 B -->
+  <!-- 미션 B -->
   <h2>미션 B — 기존 제품 디벨롭 (4축)</h2>
   <div class="card">
     <div class="mini" style="font-size:13px">
       <div class="ln"><span><span class="dot" style="background:var(--a)"></span><b>엑소좀 함량(ppm) 상향</b> — 기존 2 SKU 사급원료</span><span class="ch a_">진행중 · COSMAX 2차 처방 6/26 경과</span></div>
       <div class="ln"><span><span class="dot" style="background:var(--r)"></span><b>효능 (임상)</b></span><span class="ch r_">정체 · 사내임상 미계약 + 24h 외부 미착수</span></div>
-      <div class="ln"><span><span class="dot" style="background:var(--r)"></span><b>용기·제형</b></span><span class="ch r_">단상자 문안 검수 P1 · 크림 정가 미확정</span></div>
+      <div class="ln"><span><span class="dot" style="background:var(--r)"></span><b>용기·제형</b></span><span class="ch r_">단상자 문안 검수 P1 · 크림 정가 미확정 · 패키지 디자인 검토 7/4 경과</span></div>
       <div class="ln"><span><span class="dot" style="background:var(--r)"></span><b>단가 절감</b></span><span class="ch r_">추적 신설 — 체계 없음 · 깜깜</span></div>
     </div>
-    <div class="why" style="margin-top:8px">4축 중 <b>ppm만 진행</b>. 용기·제형·단가절감은 그동안 사각 — 이번에 추적 시작. 단가절감은 50_operations 마진계산과 연동.</div>
+    <div class="why" style="margin-top:8px">4축 중 <b>ppm만 진행</b>. 용기·제형·단가절감은 그동안 사각 — 추적 시작. 단가절감은 50_operations 마진계산과 연동.</div>
   </div>
 
-  <!-- ⑤ 블로커 → 결정큐 -->
-  <h2>블로커 → 결정큐 — P1 즉시 7건</h2>
+  <!-- ④ 블로커 → 결정큐 -->
+  <h2>④ 블로커 → 결정큐 — P1 즉시 7건</h2>
   <div class="card dq">
     <div class="row"><span class="tag r_">기한 지남</span><span>마스크 <b>비건 PDRN 실재·INCI 확인</b> — 마스크 진행/중단 분기 (6월말 last-call 경과 · 대기: Zishel/메조팜)</span></div>
     <div class="row"><span class="tag r_">기한 지남</span><span>레몬 <b>엑소좀 ppm 상향</b> — 목표 ppm·원가 영향·COSMAX 반영 일정 (마감 6/26 경과 · 대기: Zishel/COSMAX)</span></div>
@@ -140,14 +147,14 @@
     <div class="row"><span class="tag a_">대기</span><span><b>크림 List 정가 확정</b> — 현재 할인가 $26만 확인, 정가 — 🔴깜깜 (담당: Marco)</span></div>
     <div class="row"><span class="tag a_">대기</span><span><b>코스맥스 사내임상 계약·일정</b> — 항목 확정(세럼 색소·주름 / 크림 탄력·보습, 각 4주), 계약·비용 미정 (대기: COSMAX)</span></div>
     <div class="row"><span class="tag a_">대기</span><span>마스크 <b>시트 생산 실무</b> — 리드타임·계약·발주·MOQ·클레임 범위 (대기: 메조팜)</span></div>
-    <div class="row"><span class="tag a_">대기</span><span>마스크 <b>800원 공급가 원가 검증</b> — 4성분 efficacy 농도 가능 여부, 안 되면 단가↑ or 성분↓ (대기: 메조팜)</span></div>
+    <div class="row"><span class="tag a_">대기</span><span>마스크 <b>400원 제조원가 함유량 검증</b> — 히어로(시카·마데카) 실구현 / 엑소좀·PDRN 라벨층, 인코텀즈 포함 (대기: 메조팜)</span></div>
   </div>
   <div class="why" style="margin-top:8px">뒤 이어 P2 6건(Essential Oil 9종 · 신 Trademark · EU/UK 라벨+RP · 보습24h 기관 선정 · Drying Lotion 포뮬러 · 마스크 팔레트) · P3 8건 — 전체는 <a class="full" href="decisions-pending.md">decisions-pending.md →</a></div>
 
   <div class="foot">
-    체계: 이 화면(팀 수집) → <a class="full" href="../10_strategy/dashboard/index.html">전략기획 L1</a>(취합·판단) → 결정큐(환류) · 보고계약 v1.
-    측정배지 <span class="ch g_">측정</span> <span class="ch a_">추정</span> <span class="ch r_">깜깜</span> — 🔴 감소 = readiness 상승.
-    정본: <a class="full" href="active-work.md">active-work</a> · <a class="full" href="decisions-pending.md">decisions-pending</a> · <a class="full" href="../00_compass/products.md">products.md</a> · 모르는 수치는 — 로 표기(날조 없음).
+    ⑤ 측정배지 <span class="ch g_">측정</span> <span class="ch a_">추정</span> <span class="ch r_">깜깜</span> — 🔴 감소 = readiness 상승. 모르는 수치는 — 표기(날조 없음).<br>
+    체계: 이 화면(팀 수집) → <a class="full" href="../10_strategy/dashboard/index.html">전략기획 L1</a>(취합·판단) → 결정큐(환류) · 보고계약 v1 · 기계판독: <a class="full" href="team-card.json">team-card.json</a>.
+    정본: <a class="full" href="README.md">README(데이터 풀 지도)</a> · <a class="full" href="active-work.md">active-work</a> · <a class="full" href="decisions-pending.md">decisions-pending</a> · <a class="full" href="../00_compass/products.md">products.md</a>
   </div>
 </body>
 </html>

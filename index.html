@@ -28,13 +28,10 @@
   .g_{background:var(--gb);color:var(--gd)} .a_{background:var(--ab);color:var(--ad)} .r_{background:var(--rb);color:var(--rd)} .b_{background:var(--bb);color:var(--bd)}
   .big{font-size:25px;font-weight:700;letter-spacing:-.01em}
   .big small{font-size:12px;color:var(--mut);font-weight:500}
-  /* 전략기획 자체 지표 스트립 */
   .own{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px;margin-top:14px}
   .own .card{border-top:3px solid var(--bd);border-radius:0 0 14px 14px}
-  /* 신호등 */
   .sig{display:flex;align-items:center;gap:8px;font-size:15px;font-weight:700;margin-top:5px}
   .why{font-size:12px;color:var(--mut);margin-top:5px;line-height:1.5}
-  /* 궤도 */
   .track{display:flex;gap:6px;flex-wrap:wrap;margin-top:4px}
   .step{flex:1;min-width:118px;border:1px solid var(--line);border-radius:10px;padding:8px 10px}
   .step.now{background:var(--bb);border-color:transparent}
@@ -42,12 +39,10 @@
   .step .v{font-size:13.5px;font-weight:700} .step.now .v{color:var(--bd)}
   .step.stretch{background:var(--soft);border-color:transparent}
   .gapbar{margin-top:12px;background:var(--soft);border-radius:8px;height:10px;overflow:hidden;position:relative}
-  .gapbar>i{display:block;height:100%;width:12%;background:var(--b);border-radius:8px}
-  /* 결정큐 */
+  .gapbar>i{display:block;height:100%;background:var(--b);border-radius:8px}
   .dq .row{display:flex;gap:10px;align-items:flex-start;padding:9px 0;border-bottom:1px solid var(--line);font-size:13.5px}
   .dq .row:last-child{border-bottom:0}
   .tag{font-size:11px;font-weight:700;padding:2px 8px;border-radius:6px;white-space:nowrap;flex:none;margin-top:1px}
-  /* 팀 그리드 */
   .team{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden}
   .team .hd{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:11px 15px;border-bottom:1px solid var(--line);background:var(--soft)}
   .team .hd .nm{font-size:13.5px;font-weight:700}
@@ -62,7 +57,6 @@
   .verdict{font-size:11.5px;margin-top:9px;padding:6px 10px;border-radius:8px;background:var(--soft)}
   a.full{font-size:11.5px;color:var(--b);text-decoration:none;font-weight:600}
   a.full:hover{text-decoration:underline}
-  /* 마일스톤 */
   .ms{display:flex;gap:10px;flex-wrap:wrap}
   .ms .m{flex:1;min-width:150px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:10px 13px;font-size:12.5px}
   .ms .m b{display:block;font-size:13px}
@@ -71,24 +65,24 @@
 </head>
 <body>
   <h1>VDVIA 전략기획 대시보드 <span class="ch b_">L1</span></h1>
-  <div class="sub">2026-07-02 · 신스 레이어: 수집 → 취합 → 판단 → 환류 · 성장=자율 관측 / 개발·영업·운영=직접 관리</div>
+  <div class="sub">2026-07-07 빌드 · 신스 레이어: 수집 → 취합 → 판단 → 환류 · 성장=자율 관측 / 개발·영업·운영=직접 관리</div>
 
-  <!-- ① 전략기획이 스스로 관리하는 지표 (팀 뼈대) -->
+  <!-- ① 전략기획 자체 지표 (팀 뼈대) -->
   <div class="own">
     <div class="card">
       <div class="lbl">북극성 · 측정 무결성 — 깜깜 지표</div>
       <div class="big">5<small> 개 🔴 → 목표 0</small></div>
-      <div class="why">귀속률 · 영업 통과율·재주문율·파이프라인$ · 서류SLA. <b>매달 줄면 맞는 방향.</b></div>
+      <div class="why">시딩→유료 귀속률 · B2B 펀널 통과율 (발송 0 — 측정 불가) · B2B PO 금액 (3건 중 2건 미기록) · 수출서류 SLA (CIPL/PI) · D2C 퍼널 (Shopify 미연결). <b>매달 줄면 맞는 방향.</b></div>
     </div>
     <div class="card">
       <div class="lbl">결정큐 — 대기·처리 속도</div>
-      <div class="big">3<small> 건 대기 · 1건 기한 지남</small></div>
-      <div class="why">비건 PDRN(6월말 경과) · UAE 게이트 D-11 · OKR 격상. <b>안 밀리면 맞는 방향.</b></div>
+      <div class="big">11<small> 건 대기 · 1건 기한 지남</small></div>
+      <div class="why">전략 안건 + 팀 블로커 자동 합류(보고계약 ④). <b>안 밀리면 맞는 방향.</b></div>
     </div>
     <div class="card">
       <div class="lbl">궤도 갭 — 런레이트 vs 필요선</div>
-      <div class="big">18×<small> 부족 (₩2.4M vs 필요 ₩44M/월)</small></div>
-      <div class="why">YTD ₩35M = Y1 3억의 12%. <b>갭이 줄면 맞는 방향.</b> 🟢실측(CGETC·FBA)</div>
+      <div class="big">16×<small> 부족 (₩2.7M vs 필요 ₩44M/월)</small></div>
+      <div class="why">YTD ₩35M = Y1 3억의 12%. <b>갭이 줄면 맞는 방향.</b> 🟢실측(6월 실측 FBA+ERP ~$2,050)</div>
     </div>
   </div>
 
@@ -97,17 +91,17 @@
     <div class="card">
       <div class="lbl">현금</div>
       <div class="sig"><span class="dot" style="background:var(--a)"></span>주의</div>
-      <div class="why">물류바우처 450만 입금 <b>D-8 (7/10)</b> · 예산·런웨이 = 대표 별도 관리</div>
+      <div class="why">물류바우처 450만 입금 <b>D-3 (7/10)</b> · 예산·런웨이 = 대표 별도 관리</div>
     </div>
     <div class="card">
       <div class="lbl">전환</div>
       <div class="sig"><span class="dot" style="background:var(--r)"></span>적신호</div>
-      <div class="why">최근 3개월 평균 <b>$1,788/월</b> · MER 1.0(본전 미달) · 7월 초 매출 거의 0</div>
+      <div class="why">6월 회사 매출 ~$2,050 = 플랜 목표의 21% · MER 1.0(본전 1.9 미달) · 유일한 불씨 = <b>Amazon 3개월 연속 ~4배 성장</b></div>
     </div>
     <div class="card">
       <div class="lbl">방향</div>
       <div class="sig"><span class="dot" style="background:var(--r)"></span>적신호</div>
-      <div class="why">깜깜 5지표 · UAE 7/13 확장 게이트 미결 · 영업 엔진 정지</div>
+      <div class="why">깜깜 5지표 · UAE 확장 게이트 <b>D-6 (7/13)</b> 미결 · B2B 아웃바운드 미가동(발송 0) · Y1 3억 유지/재조정 결정 대기</div>
     </div>
   </div>
 
@@ -120,15 +114,23 @@
       <div class="step"><div class="k">Y3 2028</div><div class="v">60~100억</div></div>
       <div class="step stretch"><div class="k">Stretch</div><div class="v">1000억</div></div>
     </div>
-    <div class="gapbar"><i></i></div>
-    <div class="why" style="margin-top:8px">Y1 진척 12% · 남은 6개월 필요 <b>월 ₩44M</b> vs 현재 월 ₩2.4M — 전환 엔진 검증 없이는 도달 불가. 갭 축소가 유일한 판정 기준.</div>
+    <div class="gapbar"><i style="width:12%"></i></div>
+    <div class="why" style="margin-top:8px">Y1 진척 12% · 남은 6개월 필요 <b>월 ₩44M</b> vs 현재 월 ₩2.7M. 유일한 성장 엔진 = Amazon (4월 $28 → 5월 $439 → 6월 $1,668 → 7월 페이스 ~$5.6k, 매월 ~4배). Q3 = 이 불씨의 원인 규명·재현 증명에 자원 집중 — 증명 전 신규 시장 대액 투입 보류.</div>
   </div>
 
-  <h2>지금 결정할 것 — 결정큐</h2>
+  <h2>지금 결정할 것 — 결정큐 (전략 안건 + 팀 블로커 자동 합류)</h2>
   <div class="card dq">
-    <div class="row"><span class="tag r_">기한 지남</span><span>비건 PDRN 실재 확인 — <b>마스크팩 진행/중단</b> (6월말 last-call 경과 → 즉시)</span></div>
-    <div class="row"><span class="tag r_">D-11</span><span>UAE 7/13 확장 <b>검증 게이트</b> — US ROAS≥1.75 재현 전 대액 보류 권고</span></div>
-    <div class="row"><span class="tag a_">전사</span><span>Q3 OKR(측정→전환→재고) <b>회사 OKR 격상</b></span></div>
+    <div class="row"><span class="tag r_">D-6 (7/13)</span><span>UAE 확장 <b>검증 게이트</b> — US 공식(ROAS≥1.75) 증명 전 대액 투입 보류 권고</span></div>
+    <div class="row"><span class="tag a_">전사</span><span><b>Y1 3억 유지 vs 재조정</b> — Q3 Amazon 증명 여부로 10월 확정 (7/05 사업진단)</span></div>
+    <div class="row"><span class="tag a_">전사</span><span>Q3 OKR <b>확정·회사 격상</b> — 확정 게이트 5개 중 Shopify 연결이 선결</span></div>
+    <div class="row"><span class="tag b_">20 블로커</span><span>마스크 비건 PDRN 실재·INCI 확인 (진행/중단 분기) <span style="color:var(--mut)">— Zishel/메조팜 회신</span></span></div>
+    <div class="row"><span class="tag b_">20 블로커</span><span>레몬 엑소좀 ppm 상향 — 목표치·원가·일정 (6/26 경과) <span style="color:var(--mut)">— Zishel/COSMAX 회신</span></span></div>
+    <div class="row"><span class="tag b_">20 블로커</span><span>코스맥스 사내임상 계약·비용 <span style="color:var(--mut)">— CEO 결정 (비용)</span></span></div>
+    <div class="row"><span class="tag b_">40 블로커</span><span>Emh 몽골 분할결제 수용 여부 — 잔여 150개 제품 도착 후 결제 역제안(7/2). 7/6 미팅 결과 반영 → 수용 시 PI 발행 <span style="color:var(--mut)">— Marco 결정</span></span></div>
+    <div class="row"><span class="tag b_">40 블로커</span><span>이메일 warmup 발송 개시 — 키·DNS 준비 완료. DKIM &#x27;Authenticated&#x27; 상태 확인 후 day1 (5통/일) 시작 승인 <span style="color:var(--mut)">— Marco 결정</span></span></div>
+    <div class="row"><span class="tag b_">40 블로커</span><span>PO 금액 2건 기입 — Emh 250개·Beauteers Trial 176개 → 이 JSON north_star.po_usd_measured 갱신 <span style="color:var(--mut)">— 입력</span></span></div>
+    <div class="row"><span class="tag b_">40 블로커</span><span>선행지표 목표선 확정 — 주간 신규 컨택 25 · 검증 리드 10은 제안값 <span style="color:var(--mut)">— 입력</span></span></div>
+    <div class="row"><span class="tag b_">50 블로커</span><span>물류바우처 분담금 450만 입금 <span style="color:var(--mut)">— CEO 결정 (현금)</span></span></div>
   </div>
 
   <h2>4팀 관측 — 뼈대 수치 · 방향 판정</h2>
@@ -137,73 +139,77 @@
     <div class="team">
       <div class="hd"><span class="nm">제품성장 · 30 <span class="ch b_" style="font-weight:600">자율 · 관측</span></span><span class="ch a_">⚠ 주의</span></div>
       <div class="bd">
-        <div class="ns"><span class="num">$779</span><span class="u">주간 유료 순매출 /주</span><span class="ch a_">추정</span></div>
+        <div class="ns"><span class="num">$779</span><span class="u">주간 유료 순매출 · USD/주</span><span class="ch a_">추정</span></div>
         <div class="mini">
-          <div class="ln"><span>ROAS / MER (본전선)</span><span>0.88 · 1.0 <span class="ch r_">본전미달</span></span></div>
-          <div class="ln"><span>CVR + 리뷰</span><span>2.73% · 54개 <span class="ch g_">측정</span></span></div>
+          <div class="ln"><span>ROAS / MER (본전 1.9)</span><span>0.88 / 목표 1.75 ▼ <span class="ch g_">측정</span></span></div>
+          <div class="ln"><span>CVR + 리뷰</span><span>2.73% · 54개 ▲ <span class="ch g_">측정</span></span></div>
           <div class="ln"><span>시딩→유료 귀속률</span><span>— <span class="ch r_">깜깜</span></span></div>
         </div>
-        <div class="verdict">판정: 실행 온타임·결과 미달. <b>7/3 전환율 게이트</b>가 증액/축소 분기점.</div>
+        <div class="verdict">판정: 실행 온타임·결과 미달. <b>Amazon 3개월 연속 성장 = 유일한 반복가능성 신호</b> — 원인 규명·재현이 Q3 최우선.</div>
         <a class="full" href="https://lemonderma-perf-admin.pages.dev/">팀 리포트 →</a>
+        <span style="font-size:10px;color:var(--mut);float:right">관측(수기) · 2026-07-02</span>
       </div>
     </div>
 
     <div class="team">
       <div class="hd"><span class="nm">제품개발 · 20 <span class="ch g_" style="font-weight:600">직접 관리</span></span><span class="ch a_">⚠ 주의</span></div>
       <div class="bd">
-        <div class="ns"><span class="num">43%</span><span class="u">클레임 readiness (3/7)</span><span class="ch g_">측정</span></div>
+        <div class="ns"><span class="num">43%</span><span class="u">클레임 자산 readiness % · %</span><span class="ch g_">측정</span></div>
         <div class="mini">
-          <div class="ln"><span>외부 임상 확보</span><span>0 / 2건 <span class="ch r_">미확보</span></span></div>
-          <div class="ln"><span>신제품 파이프라인</span><span>마스크 P1 대기 <span class="ch a_">추정</span></span></div>
-          <div class="ln"><span>P1 결정 대기 (↓ = 건강)</span><span>7건 <span class="ch g_">측정</span></span></div>
+          <div class="ln"><span>외부 임상 착수(건)</span><span>0 / 목표 2 → <span class="ch r_">깜깜</span></span></div>
+          <div class="ln"><span>P1 결정 적체(건, ↓=건강)</span><span>7 / 목표 0 → <span class="ch g_">측정</span></span></div>
+          <div class="ln"><span>마스크 게이트(발주 확정=통과)</span><span>— → <span class="ch a_">추정</span></span></div>
         </div>
-        <div class="verdict">판정: 기술·인증 강함, <b>P1 적체·임상 정체</b>가 지속되면 어긋남.</div>
+        <div class="verdict">판정: 기술·인증 강함. <b>P1 적체·임상 정체</b>가 지속되면 어긋남.</div>
         <a class="full" href="https://marcovdvia.github.io/vdvia-board-3f9k2x/product/">팀 대시보드 →</a>
+        <span style="font-size:10px;color:var(--mut);float:right">team-card · 2026-07-07</span>
       </div>
     </div>
 
     <div class="team">
-      <div class="hd"><span class="nm">해외영업 · 40 <span class="ch g_" style="font-weight:600">직접 관리</span></span><span class="ch r_">🔴 어긋남</span></div>
+      <div class="hd"><span class="nm">해외영업 · 40 <span class="ch g_" style="font-weight:600">직접 관리</span></span><span class="ch a_">⚠ 주의</span></div>
       <div class="bd">
-        <div class="ns"><span class="num">$—</span><span class="u">파이프라인 / 체결 PO 1건</span><span class="ch r_">깜깜</span></div>
+        <div class="ns"><span class="num">$79,550</span><span class="u">B2B 파이프라인 $ + 체결 PO · USD</span><span class="ch a_">추정</span></div>
         <div class="mini">
-          <div class="ln"><span>주간 신규 컨택</span><span>0건 <span class="ch r_">정지</span></span></div>
-          <div class="ln"><span>컨택→응답→상담 통과율</span><span>— <span class="ch r_">깜깜</span></span></div>
-          <div class="ln"><span>재주문율</span><span>— <span class="ch r_">깜깜</span></span></div>
+          <div class="ln"><span>주간 신규 컨택 (아웃바운드)</span><span>0 / 목표 25 → <span class="ch g_">측정</span></span></div>
+          <div class="ln"><span>검증 통과 리드 (누적)</span><span>5 / 목표 10 ▲ <span class="ch g_">측정</span></span></div>
+          <div class="ln"><span>활성 거래선 리오더 트래킹</span><span>1 / 목표 4 → <span class="ch a_">추정</span></span></div>
         </div>
-        <div class="verdict">판정: <b>"끊임없는 소통" 미션인데 컨택 0 지속</b> — 해소 = API키 4종 발급.</div>
+        <div class="verdict">판정: 파이프라인 $79.5k <b>첫 실측</b> (7/07 재구성). 남은 것 = warmup 발송 개시 + PO 금액 2건 기입 — 발송 0인 주가 재발하면 어긋남.</div>
         <a class="full" href="https://marcovdvia.github.io/vdvia-board-3f9k2x/sales/">팀 대시보드 →</a>
+        <span style="font-size:10px;color:var(--mut);float:right">team-card · 2026-07-07</span>
       </div>
     </div>
 
     <div class="team">
       <div class="hd"><span class="nm">경영지원 · 50 <span class="ch g_" style="font-weight:600">직접 관리</span></span><span class="ch a_">⚠ 주의</span></div>
       <div class="bd">
-        <div class="ns"><span class="num">2/3</span><span class="u">미션 축 가동</span><span class="ch g_">측정</span></div>
+        <div class="ns"><span class="num">₩70M</span><span class="u">정부지원 확보 + 서류SLA + 재고 가시성 (3축) · KRW</span><span class="ch r_">깜깜</span></div>
         <div class="mini">
-          <div class="ln"><span>정부지원 현금화</span><span>2건 · ₩70M <span class="ch g_">측정</span></span></div>
-          <div class="ln"><span>수출서류 SLA</span><span>— <span class="ch r_">CIPL/PI 미구축</span></span></div>
-          <div class="ln"><span>재고 회전일수</span><span>600일분 ▲ <span class="ch a_">추정</span></span></div>
+          <div class="ln"><span>정부지원 확보(건)</span><span>2 / 목표 3 ▲ <span class="ch g_">측정</span></span></div>
+          <div class="ln"><span>수출서류 SLA(일)</span><span>— / 목표 2 <span class="ch r_">깜깜</span></span></div>
+          <div class="ln"><span>재고 총량(개)</span><span>4,069 → <span class="ch a_">추정</span></span></div>
         </div>
-        <div class="verdict">판정: 마감 사수(7/10) + 재고일수 감소가 관건. <b>서류가 영업 병목되면 어긋남.</b></div>
+        <div class="verdict">판정: 7/10 마감 사수 + 재고 회전일수 감소가 관건. <b>서류(CIPL/PI)가 영업 병목되면 어긋남.</b></div>
         <a class="full" href="https://marcovdvia.github.io/vdvia-board-3f9k2x/ops/">운영 보고서 →</a>
+        <span style="font-size:10px;color:var(--mut);float:right">team-card · 2026-07-07</span>
       </div>
     </div>
-
   </div>
 
-  <h2>이번 주 마일스톤</h2>
+  <h2>다가오는 마일스톤</h2>
   <div class="ms">
-    <div class="m"><b>7/3 (D-1)</b>성장 전환율 게이트 — 증액/축소 분기</div>
-    <div class="m"><b>7/10 (D-8)</b>물류바우처 450만 입금 마감</div>
-    <div class="m"><b>7/13 (D-11)</b>UAE 확장 — 게이트 결정 필요</div>
-    <div class="m"><b>7/25</b>Monthly Review — 헬스리뷰·계약 준수 재측정</div>
+    <div class="m"><b>D-3 (7/10)</b>물류바우처 450만 입금 마감</div>
+    <div class="m"><b>D-6 (7/13)</b>UAE 확장 — 검증 게이트 결정</div>
+    <div class="m"><b>D-18 (7/25)</b>Monthly Review — 헬스리뷰·보고계약 5칸 재측정</div>
+    <div class="m"><b>D-86 (10/1)</b>Y1 3억 유지/하향 재확정 (Q3 증명 결과)</div>
   </div>
 
   <div class="foot">
-    체계: 팀 대시보드(수집) → 이 화면(취합·판단) → 결정큐(환류) · 매일 08:00 자동 갱신·팀별 Slack 발송.
+    체계: 팀 대시보드(수집) → 이 화면(취합·판단) → 결정큐(환류) · 매일 08:00 자동 빌드·발행·팀별 Slack 발송.
     측정배지 <span class="ch g_">측정</span> <span class="ch a_">추정</span> <span class="ch r_">깜깜</span> — 🔴 감소 = 전략기획 북극성.
-    정본: <a class="full" href="../okr-kpi/팀별-관리뼈대.md">팀별-관리뼈대</a> · <a class="full" href="팀-대시보드-보고계약.md">보고계약</a> · 수치 출처: CGETC ERP·FBA 실측 (YTD $25,986).
+    갱신 = <b>memory/l1_state.json</b>(전략 수기 정본) + 각 팀 <b>team-card.json</b>(기계판독) → build_strategy_l1.py.
+    정본: <a class="full" href="../okr-kpi/팀별-관리뼈대.md">팀별-관리뼈대</a> · <a class="full" href="팀-대시보드-보고계약.md">보고계약</a> · <a class="full" href="2026-07-사업진단-1p.md">7/05 사업진단</a>
   </div>
 </body>
 </html>
