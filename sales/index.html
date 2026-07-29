@@ -5,8 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
 <title>VDVIA 해외영업팀 대시보드 (40)</title>
-<style>
-  :root{
+<style>  :root{
     --bg:#faf9f5; --card:#ffffff; --ink:#1c1b18; --mut:#6b6a64; --line:#e6e3da; --soft:#f1efe8;
     --g:#1d9e75; --gb:#e1f5ee; --gd:#0f6e56;
     --a:#ba7517; --ab:#faeeda; --ad:#854f0b;
@@ -19,6 +18,9 @@
   h1{font-size:21px;font-weight:700;letter-spacing:-.01em}
   h2{font-size:12.5px;font-weight:700;color:var(--mut);letter-spacing:.06em;text-transform:uppercase;margin:24px 0 10px}
   .sub{color:var(--mut);font-size:12.5px;margin-top:3px}
+  .grid{display:grid;gap:12px}
+  .g3{grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}
+  .g2{grid-template-columns:repeat(auto-fit,minmax(330px,1fr))}
   .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 17px}
   .lbl{font-size:11.5px;color:var(--mut);font-weight:600;letter-spacing:.02em}
   .dot{display:inline-block;width:9px;height:9px;border-radius:50%;flex:none}
@@ -27,21 +29,57 @@
   .big{font-size:25px;font-weight:700;letter-spacing:-.01em}
   .big small{font-size:12px;color:var(--mut);font-weight:500}
   .own{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px;margin-top:14px}
-  .own .card{border-top:3px solid var(--rd);border-radius:0 0 14px 14px}
+  .own .card{border-top:3px solid var(--bd);border-radius:0 0 14px 14px}
   .sig{display:flex;align-items:center;gap:8px;font-size:15px;font-weight:700;margin-top:5px}
   .why{font-size:12px;color:var(--mut);margin-top:5px;line-height:1.5}
   .track{display:flex;gap:6px;flex-wrap:wrap;margin-top:4px}
   .step{flex:1;min-width:118px;border:1px solid var(--line);border-radius:10px;padding:8px 10px}
+  .step.now{background:var(--bb);border-color:transparent}
+  .step .k{font-size:10.5px;color:var(--mut)} .step.now .k{color:var(--bd)}
+  .step .v{font-size:13.5px;font-weight:700} .step.now .v{color:var(--bd)}
+  .step.stretch{background:var(--soft);border-color:transparent}
+  .gapbar{margin-top:12px;background:var(--soft);border-radius:8px;height:10px;overflow:hidden;position:relative}
+  .gapbar>i{display:block;height:100%;background:var(--b);border-radius:8px}
+  .dq .row{display:flex;gap:10px;align-items:flex-start;padding:9px 0;border-bottom:1px solid var(--line);font-size:13.5px}
+  .dq .row:last-child{border-bottom:0}
+  .tag{font-size:11px;font-weight:700;padding:2px 8px;border-radius:6px;white-space:nowrap;flex:none;margin-top:1px}
+  .team{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+  .team .hd{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:11px 15px;border-bottom:1px solid var(--line);background:var(--soft)}
+  .team .hd .nm{font-size:13.5px;font-weight:700}
+  .team .bd{padding:12px 15px 14px}
+  .ns{display:flex;align-items:baseline;gap:7px}
+  .ns .num{font-size:23px;font-weight:700}
+  .ns .u{font-size:11.5px;color:var(--mut)}
+  .mini{font-size:12.3px;margin-top:9px}
+  .mini .ln{display:flex;justify-content:space-between;gap:8px;padding:3.5px 0;border-top:1px dashed var(--line)}
+  .mini .ln:first-of-type{border-top:0}
+  .mini .ln>span:first-child{color:var(--mut)}
+  .verdict{font-size:11.5px;margin-top:9px;padding:6px 10px;border-radius:8px;background:var(--soft)}
+  a.full{font-size:11.5px;color:var(--b);text-decoration:none;font-weight:600}
+  a.full:hover{text-decoration:underline}
+  .ms{display:flex;gap:10px;flex-wrap:wrap}
+  .ms .m{flex:1;min-width:150px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:10px 13px;font-size:12.5px}
+  .ms .m b{display:block;font-size:13px}
+  .foot{font-size:11px;color:var(--mut);margin-top:24px;border-top:1px solid var(--line);padding-top:12px;line-height:1.7}
+
+  /* hero banner — 공유 키트 신규 컴포넌트 (2026-07-24). 판정을 최상단에 강제. */
+  .hero{border-radius:16px;padding:20px 22px;margin:14px 0 20px;border:1px solid var(--line)}
+  .hero.hero-green{background:var(--gb);border-color:transparent}
+  .hero.hero-amber{background:var(--ab);border-color:transparent}
+  .hero.hero-red{background:var(--rb);border-color:transparent}
+  .hero-label{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;opacity:.75}
+  .hero-value{font-size:32px;font-weight:800;margin-top:4px}
+  .hero-threshold{font-size:15px;font-weight:600;opacity:.7;margin-left:8px}
+  .hero-why{font-size:13px;margin-top:8px;opacity:.85;line-height:1.5}
+  .hero-green .hero-label,.hero-green .hero-value,.hero-green .hero-why{color:var(--gd)}
+  .hero-amber .hero-label,.hero-amber .hero-value,.hero-amber .hero-why{color:var(--ad)}
+  .hero-red .hero-label,.hero-red .hero-value,.hero-red .hero-why{color:var(--rd)}
+  .own .card{border-top-color:var(--rd)}
   .step .k{font-size:10.5px;color:var(--mut)}
   .step .v{font-size:16px;font-weight:700}
   .step .e{font-size:10.5px;color:var(--mut);margin-top:2px}
   .step.bad{background:var(--rb);border-color:transparent}
   .step.bad .k,.step.bad .v{color:var(--rd)}
-  .step.now{background:var(--bb);border-color:transparent}
-  .step.now .k,.step.now .v{color:var(--bd)}
-  .dq .row{display:flex;gap:10px;align-items:flex-start;padding:9px 0;border-bottom:1px solid var(--line);font-size:13.5px}
-  .dq .row:last-child{border-bottom:0}
-  .tag{font-size:11px;font-weight:700;padding:2px 8px;border-radius:6px;white-space:nowrap;flex:none;margin-top:1px}
   .tbl{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:auto}
   table{width:100%;border-collapse:collapse;font-size:12.8px}
   th{text-align:left;padding:9px 12px;color:var(--mut);font-weight:600;font-size:11px;text-transform:uppercase;letter-spacing:.04em;border-bottom:1px solid var(--line);background:var(--soft);white-space:nowrap}
@@ -52,13 +90,9 @@
   tr.off{opacity:.55}
   .ns{display:flex;gap:26px;flex-wrap:wrap;align-items:flex-start}
   .ns .blk{min-width:180px}
-  .verdict{font-size:11.5px;margin-top:9px;padding:6px 10px;border-radius:8px;background:var(--soft)}
-  a.full{font-size:11.5px;color:var(--b);text-decoration:none;font-weight:600}
-  a.full:hover{text-decoration:underline}
   .linkcard{display:flex;align-items:center;justify-content:space-between;gap:12px}
   .linkcard a{font-size:14px;font-weight:700;color:var(--b);text-decoration:none}
   .linkcard a:hover{text-decoration:underline}
-  .foot{font-size:11px;color:var(--mut);margin-top:24px;border-top:1px solid var(--line);padding-top:12px;line-height:1.7}
 </style>
 </head>
 <body>
@@ -73,7 +107,13 @@
 <a href="https://lemonderma-perf-admin.pages.dev/" style="text-decoration:none;color:inherit;padding:4px 10px;border-radius:8px">🟢 제품성장 ↗</a>
 </div>
   <h1>해외영업팀 대시보드 <span class="ch b_">40 · B2B</span> <span class="ch a_">전략기획 관리</span></h1>
-  <div class="sub">2026-07-07 · 표준 5칸 보고계약 · 수기 정본: memory/pipeline_state.json (숫자) · knowledge/distributors.md (서사) · 빌드: build_dashboard.py</div>
+  <div class="sub">2026-07-29 · 표준 5칸 보고계약 · 수기 정본: memory/pipeline_state.json (숫자) · knowledge/distributors.md (서사) · 빌드: build_dashboard.py</div>
+
+  <div class="hero hero-green">
+  <div class="hero-label">주간 신규 컨택 (아웃바운드)</div>
+  <div class="hero-value">66건 <span class="hero-threshold">vs 목표 25건</span></div>
+  <div class="hero-why">7/27 5건(1호 발송) + 7/28 45건 + 7/29 16건(진행 중, 일 50 목표) = 누적 66건. 발송 전 SMTP 자체검증 도입(7/28)으로 반송 5건 이후 0건. 오늘 회신 2건 수신(트리아지 전) — 콜드 아웃바운드 사상 첫 응답</div>
+</div>
 
   <!-- ① 북극성 -->
   <h2>북극성 — B2B 파이프라인 $ + 체결 PO</h2>
@@ -81,8 +121,8 @@
     <div class="ns">
       <div class="blk">
         <div class="lbl">파이프라인 $ (협상 중)</div>
-        <div class="big">$79,550<span class="ch a_">🟡 추정</span></div>
-        <div class="why">Beauteers 5K+5K 확장 제안 (7/3 발송·유효 7/15) = 5,000×$8.18 + 5,000×$7.73. 수락 전 추정 — 회신 시 실측 전환</div>
+        <div class="big">$58,000<span class="ch a_">🟡 추정</span></div>
+        <div class="why">Beauteers HSN/QVC 홈쇼핑 건 — 공급가 $5.80 수용 확정(7/29), 정가 방식으로 최종 확정(세럼5,000+크림5,000×$5.80=$58,000). FOC10 방식(순증마진 +$3,000)도 검토했으나 이 딜의 레퍼런스/미디어바이 취지·저쪽 협상 피로도 감안해 단순 정가로 재판단(7/29). 채널전용(HSN/QVC 방송 전용, diversion 금지) — 기존 5K+5K 일반채널 제안($8.18/$7.73)은 이 건으로 대체·상회 아님, 별도 트랙. 최종 PO 수량 확정 전 추정치. 공급 제안서 발송용: [PDF](../contracts/VD-SP-260729-BTR-HSNQVC.pdf)</div>
       </div>
       <div class="blk">
         <div class="lbl">체결 PO (누적)</div>
@@ -91,8 +131,8 @@
       </div>
       <div class="blk">
         <div class="lbl">체결 PO 금액 (실측분)</div>
-        <div class="big">$1,200<span class="ch r_">🔴 깜깜</span></div>
-        <div class="why">3건 중 IO Beauty $1,200만 금액 실측. Emh·Beauteers Trial 금액 기입 필요</div>
+        <div class="big">$9,120<span class="ch a_">🟡 추정</span></div>
+        <div class="why">IO Beauty $1,200 + Emh $7,920(초도 250+250 $4,400 결제완료 + 세럼 추가400 $3,520 PI발행·입금대기, WhatsApp export 2026-07-23 대조 확인) 실측. Beauteers Trial 금액만 기입 필요</div>
       </div>
     </div>
   </div>
@@ -102,8 +142,8 @@
   <div class="own" style="margin-top:0">
     <div class="card">
       <div class="lbl">주간 신규 컨택 (아웃바운드)</div>
-      <div class="big">0<small> / 목표 25 →</small> <span class="ch g_">🟢 측정</span></div>
-      <div class="why">warmup 발송 0건 실측 (날조 아님). 키 4종 발급 완료 → 남은 것 = DKIM Authenticated 확인 + warmup 개시 · <b>목표선:</b> 제안 — Marco 확정 필요 (warmup 4주 완료 후 도달 목표)</div>
+      <div class="big">66<small> / 목표 25 ▲</small> <span class="ch g_">🟢 측정</span></div>
+      <div class="why">7/27 5건(1호 발송) + 7/28 45건 + 7/29 16건(진행 중, 일 50 목표) = 누적 66건. 발송 전 SMTP 자체검증 도입(7/28)으로 반송 5건 이후 0건. 오늘 회신 2건 수신(트리아지 전) — 콜드 아웃바운드 사상 첫 응답 · <b>목표선:</b> 달성(7/29, 3일 만에 목표 초과) — 다음 목표선 재설정 필요</div>
     </div>
     <div class="card">
       <div class="lbl">검증 통과 리드 (누적)</div>
@@ -120,32 +160,35 @@
   <!-- ③ 신호등 -->
   <div class="card" style="margin-top:12px">
     <div class="lbl">방향 판정</div>
-    <div class="sig"><span class="dot" style="background:var(--a)"></span>🟡 주의</div>
-    <div class="why">파이프라인은 살아있음 (활성 4곳 · 협상 2건 · 리드 5). 그러나 아웃바운드 엔진 미가동(발송 0·cron 0) + PO 금액 3건 중 2건 미기록 — 성과를 돈으로 못 셈</div>
+    <div class="sig"><span class="dot" style="background:var(--g)"></span>🟢 순항</div>
+    <div class="why">아웃바운드 엔진 가동 3일차 — 누적 발송 66건(목표 25 초과 달성)·반송률 검증 후 0%·오늘 첫 회신 2건. DB 2,112곳·검증통과 발송가능 410곳 인프라 완성. launchd 자동발송 3창(10:00·14:30·19:00) + 30분 주기 회신감시 가동 중</div>
   </div>
 
   <!-- 펀널 -->
   <h2>발굴 → 컨택 → 응답 → 상담 → 체결 펀널</h2>
   <div class="card">
     <div class="track">
-      <div class="step "><div class="k">발굴 (Lead)</div><div class="v">5</div><div class="e">검증 통과 리드 · Apollo 엔진 미가동</div></div>
-      <div class="step bad"><div class="k">컨택 (Outreach)</div><div class="v">0</div><div class="e">warmup 발송 0 · 실측</div></div>
-      <div class="step "><div class="k">응답 (Reply)</div><div class="v">0</div><div class="e">발송 0 → 응답 0</div></div>
+      <div class="step "><div class="k">발굴 (Lead)</div><div class="v">9</div><div class="e">검증 통과 리드(기존5) + 박람회발굴 웹검증 4건(NICKOL·Aesthetics Group·BeautyPROF·SIAN, 2026-07-23) · Apollo 엔진 미가동</div></div>
+      <div class="step now"><div class="k">컨택 (Outreach)</div><div class="v">66</div><div class="e">7/27~29 누적 발송 · 발송가능 검증통과 410곳 중 소진</div></div>
+      <div class="step now"><div class="k">응답 (Reply)</div><div class="v">2</div><div class="e">7/29 첫 회신 2건 (트리아지 전) · 30분 주기 자동 감시</div></div>
       <div class="step now"><div class="k">상담 / 협상</div><div class="v">2</div><div class="e">Beauteers 5K+5K · Emh 400 확장</div></div>
       <div class="step now"><div class="k">체결 / Reorder</div><div class="v">4</div><div class="e">활성 거래선 美·러·몽·태</div></div>
     </div>
-    <div class="why" style="margin-top:8px"><b>아웃바운드 엔진:</b> 설계 완료·미가동. 키 4종(Gmail·Apollo·Anthropic·Notion) 발급 완료 (7/7 실측) — 남은 가동 조건 = DKIM 확인 → warmup 개시 · Notion CRM 연결 검증 · launchd 등록 (README 체크리스트) → <a class="full" href="../README.md">가동 체크리스트 (40_sales/README.md)</a></div>
+    <div class="why" style="margin-top:8px"><b>아웃바운드 엔진:</b> 가동 3일차(7/29): DKIM 확인·시드웜업·자동발송(launchd 3창, 일 50 고정)·발송전 SMTP 자체검증·회신 자동감시(30분 주기, process_replies) 전부 가동 중. 개인화는 결정론적 템플릿 방식(Anthropic API 비의존) — 크레딧 이슈 무관. 남은 것 = catch_all 도메인 발송 제외 여부 판단·오늘 회신 2건 트리아지 → <a class="full" href="../README.md">가동 체크리스트 (40_sales/README.md)</a></div>
   </div>
 
   <!-- ④ 블로커 → 결정큐 -->
   <h2>블로커 → 결정큐 (CEO 결정·입력)</h2>
   <div class="card dq">
-    <div class="row"><span class="tag r_">결정</span><span>Emh 몽골 분할결제 수용 여부 — 잔여 150개 제품 도착 후 결제 역제안(7/2). 7/6 미팅 결과 반영 → 수용 시 PI 발행 <b>(Marco 결정)</b></span></div>
-    <div class="row"><span class="tag r_">결정</span><span>이메일 warmup 발송 개시 — 키·DNS 준비 완료. DKIM 'Authenticated' 상태 확인 후 day1 (5통/일) 시작 승인 <b>(Marco 결정)</b></span></div>
-    <div class="row"><span class="tag a_">입력</span><span>PO 금액 2건 기입 — Emh 250개·Beauteers Trial 176개 → 이 JSON north_star.po_usd_measured 갱신 <b>(입력)</b></span></div>
+    <div class="row"><span class="tag a_">입력</span><span>오늘(7/29) 회신 2건 — 아직 트리아지 전. 어느 거래선인지·관심 수준 확인 후 답장 초안 필요 (48h 골든타임) <b>(Marco 확인 + 답장 방향)</b></span></div>
+    <div class="row"><span class="tag a_">입력</span><span>PO 금액 1건 남음 — Beauteers Trial 176개 → 이 JSON north_star.po_usd_measured 갱신 (Emh는 2026-07-23 WhatsApp export 대조로 완료) <b>(입력)</b></span></div>
+    <div class="row"><span class="tag a_">입력</span><span>Emh 몽골 세럼 1,000개 신규 오더 확정(EXW·sea+land) — 태국재고 세럼1,194개로 커버 확인됨(7/23 Nongchat 회신). 물류경로 확인됨(태국→중국해상→몽골육로, 7/27). 몽골측 태국 포워더 확정만 남음 <b>(몽골측 포워더 회신 대기)</b></span></div>
+    <div class="row"><span class="tag r_">결정</span><span>Emh 몽골 물류비 분담 — Maral이 "중국→몽골은 몽골측 부담, 태국→중국은 예산초과라 VDVIA 부담해달라" 역제안(7/27) <b>(Marco 결정)</b></span></div>
+    <div class="row"><span class="tag r_">결정</span><span>Tier4 FOC 방식 — 세럼 FOC7%($9.35 실효가) vs 크림 FOC10%($9.05 실효가, 실제 효익 더 큼) 중 Maral에게 선택지 제시 준비됨, 아직 미발송 <b>(Marco 결정)</b></span></div>
+    <div class="row"><span class="tag a_">입력</span><span>Emh Tier 4 세럼전용 독점계약 확정(7/23 미팅) — 계약서 초안 작성해 이번 주 송부 필요 <b>(계약서 작성)</b></span></div>
     <div class="row"><span class="tag a_">입력</span><span>선행지표 목표선 확정 — 주간 신규 컨택 25 · 검증 리드 10은 제안값 <b>(입력)</b></span></div>
   </div>
-  <div class="why" style="margin-top:6px">→ ops_health 전사 결정큐로 합류 · <b>외부 대기 (블로커 아님):</b> Beauteers 5K+5K 제안 회신 (유효 7/15) · LookFresh 샘플 DHL 수령 확인 → 피드백 · Rose Innovation 판매·반품 리포트 (Prim 경유)</div>
+  <div class="why" style="margin-top:6px">→ ops_health 전사 결정큐로 합류 · <b>외부 대기 (블로커 아님):</b> Beauteers HSN/QVC — 정가 $5.80/개(T/T100%) 회신 발송(7/29) → Hamin 확인·최종 PO 수량·방송 송출 일정 확인 대기 · LookFresh 샘플 DHL 수령 확인 → 피드백 · Rose Innovation 판매·반품 리포트 (Prim 경유)</div>
 
   <!-- 시장 스코어보드 -->
   <h2>국가별 시장 스코어보드 — 어디부터·어디가 잘하나</h2>
@@ -177,13 +220,13 @@
     <table>
       <thead><tr><th>회사</th><th>국가</th><th>상태</th><th>채널·회사정보</th><th>진행사항</th><th>다음 액션</th></tr></thead>
       <tbody>
-        <tr><td class="nm">Beauteers LLC<div class="dt">Martin·Hamin Kim</div></td><td>미국</td><td><span class="ch g_">활성·협상</span></td><td class="dt">오프라인 리테일+자사몰(Cupiddrop·TikTokShop) · TikTok LOA 체결</td><td class="dt">Trial 176개 → 5K+5K 확장 제안 발송 (7/3 · 유효 7/15). 코스트코 Phase 2 보류</td><td class="dt">제안 회신 대기 → 수락 시 계약서 초안</td></tr>
-        <tr><td class="nm">IO Beauty<div class="dt">TES 경유</div></td><td>러시아</td><td><span class="ch g_">활성</span></td><td class="dt">모스크바 리테일·유통 · Gold Apple(러 최대 뷰티 리테일) 등록 완료 🎖️</td><td class="dt">첫 오더 세럼50+크림50 = $1,200 출고 (CI 6/15 항공)</td><td class="dt">90일 재주문 체크인 (9/13) · 제재/결제 상시 확인</td></tr>
-        <tr><td class="nm">Emh outsourcing<div class="dt">Maral · 이태림(TES)</div></td><td>몽골</td><td><span class="ch g_">활성·확장</span></td><td class="dt">울란바토르 리테일 (Akoya mall) · 라포 강함</td><td class="dt">250개 결제 완료 · 잔여 150 후결제 역제안(7/2) · 마스크팩 8월 건 별도</td><td class="dt">7/6 미팅 결과 → 분할결제 결정 → PI 발행</td></tr>
+        <tr><td class="nm">Beauteers LLC<div class="dt">Martin·Hamin Kim</div></td><td>미국</td><td><span class="ch g_">활성·협상</span></td><td class="dt">오프라인 리테일+자사몰(Cupiddrop·TikTokShop) · TikTok LOA 체결 · HSN/QVC 홈쇼핑 신규 트랙</td><td class="dt">Trial 176개 → 5K+5K 일반채널 제안 발송(7/3, 별도 트랙 보류) · **HSN/QVC 홈쇼핑 공급가 $5.80 수용 확정(7/29)** — 채널전용·비독점·레퍼런스+데이터 조항 전제. 공급계약서 초안 완료. 코스트코 Phase 2 보류</td><td class="dt">정가 $5.80 회신 발송(7/29) → Hamin 확인·PO 수량·방송일정 확정 대기 → 정식 PI</td></tr>
+        <tr><td class="nm">IO Beauty<div class="dt">TES 경유</div></td><td>러시아</td><td><span class="ch g_">활성</span></td><td class="dt">모스크바 리테일 · 골든애플(Zolotoe Yabloko) 입점 협의 중(제품카드 승인 대기, 7/9 기준 미완료) · 첫 확정 판매처 Афимолл "Слепая Курица"</td><td class="dt">첫 오더 세럼50+크림50 = $1,200(단가$12, CI 6/15 항공) · 불량10개(7/3, 미해결) · 라벨뭉개짐 반품(7/14, 다음배치 전문인쇄로 해결예정)</td><td class="dt">불량10개·라벨정상화 확인 · 골든애플 승인 팔로업 · 90일 재주문 체크인 (9/13)</td></tr>
+        <tr><td class="nm">Emh outsourcing<div class="dt">Maral · 이태림(TES)</div></td><td>몽골</td><td><span class="ch g_">활성·독점계약</span></td><td class="dt">울란바토르 리테일 (Akoya mall) · 라포 강함 · Elle Seagel 앰버서더 확보</td><td class="dt">**Tier4 세럼전용 독점계약 확정(7/23 미팅)** — 1년·FOC7%·연MPQ12,000(기존650개 미산입)·분기MOQ3,000·$9.35/개·MAP$24·T/T선지급. 크림은 비독점 유지. 세럼250+크림250 $4,400 결제완료 · 세럼 추가400 $3,520 PI발행·7/24 결제예정 · **신규 세럼1,000개 오더 확정(EXW·sea+land, 태국재고 세럼1,194개로 커버 확인)** · 계약서 초안 완료(7/23)</td><td class="dt">BUYER 법인 확정(Clovamed vs Ikh Taliin Dom LLC) 후 계약서 송부 · 몽골측 태국 포워더 확정 회신 대기 · 400개 미수금 입금확인(7/24) · Tier4 FOC 방식(세럼7% vs 크림10%) 선택지 발송</td></tr>
         <tr><td class="nm">Rose Innovation<div class="dt">Prim (Beautrium 위탁)</div></td><td>태국</td><td><span class="ch g_">활성</span></td><td class="dt">Beautrium 리테일 50+ 매장 · 태국 FDA 보유</td><td class="dt">웹리포트 계정 수령 (태국 IP 전용) · RTV 반품 알림 다수 · 위탁 수수료율 미확인</td><td class="dt">판매·반품 리포트 요청 → 첫 sell-through 실측</td></tr>
         <tr><td class="nm">UAE<div class="dt">Amazon FBA 직진출</div></td><td>UAE</td><td><span class="ch a_">론칭준비</span></td><td class="dt">디스트리뷰터 없음 — Amazon.ae 직진출 (7/4 확정)</td><td class="dt">7월 론칭 물량 배치</td><td class="dt">FBA 입고·리스팅 (30_growth 협업)</td></tr>
         <tr><td class="nm">사우디<div class="dt">Amazon FBA 직진출</div></td><td>사우디</td><td><span class="ch a_">론칭준비</span></td><td class="dt">UAE와 동일 구조</td><td class="dt">7월 론칭 물량 배치</td><td class="dt">FBA 입고·리스팅</td></tr>
-        <tr><td class="nm">LookFresh<div class="dt">Dr Tom Parmakellis · WhatsApp</div></td><td>호주</td><td><span class="ch g_">오더 확정</span></td><td class="dt">NSW 클리닉 + 공급 클리닉 수백곳 · Zishel 제품 임상 중</td><td class="dt">$10/개+FOC10% (2026-07-10 결정 조건) — 세럼100+크림100·FOC10%=각110개(총220개). 태국(Nongchat) 재고발 재수출, Incoterm EXW(태국측 비용 바이어 부담, 당사 선지급 후 청구). 인보이스 발송완료(VDVIA-CI-260716-01, $2,000, 이메일+WhatsApp) → 입금 대기</td><td class="dt">입금 확인 → Nongchat 패킹지시(110/110) + 라벨확인 → 포워더 확정되면 실비 기준 CIPL 발행</td></tr>
+        <tr><td class="nm">LookFresh<div class="dt">Dr Tom Parmakellis · WhatsApp</div></td><td>호주</td><td><span class="ch g_">활성·판매개시</span></td><td class="dt">NSW 클리닉 + 공급 클리닉 수백곳 · Zishel 제품 임상 중</td><td class="dt">$10/개+FOC10% — 세럼110+크림110(총220개). $2,000 입금완료 · **7/28 수령 완료 확인(트윈팩 100세트, 무사고)** — 클리닉 판매 개시 예정, 마케팅 화상미팅 요청받음</td><td class="dt">마케팅 화상미팅 일정 확정(클레임 워딩 AICIS/TGA 주의) · EXW 태국측 실비 확정 시 추가 청구서 발행 · sell-through 피드백 대기</td></tr>
         <tr><td class="nm">BHAB Cosmetics<div class="dt">Youliya · LinkedIn 1촌</div></td><td>러시아</td><td><span class="ch b_">리드 7/10</span></td><td class="dt">MA:NYO 공식 배급 · Letual·Gold Apple 입점 · 15년+</td><td class="dt">검증 완료 — 리드 중 최상급</td><td class="dt">IO Beauty 충돌 + OFAC 게이트 → 1차 접촉</td></tr>
         <tr><td class="nm">LIFE Pharmacy<div class="dt">Nutripharm · 컨택 재탐색</div></td><td>UAE/GCC</td><td><span class="ch b_">리드 9/10</span></td><td class="dt">GCC 약국체인 500+ 매장 · K뷰티·더마 카테고리 보유</td><td class="dt">회사 최상급 · 기존 1촌은 경쟁사(PURITO) 영업으로 판명</td><td class="dt">진짜 K뷰티 바이어 컨택 발굴</td></tr>
         <tr><td class="nm">Skin Zephyr<div class="dt">Christina Thornton</div></td><td>미국</td><td><span class="ch b_">리드 5/10</span></td><td class="dt">NC 샬럿 · K뷰티 온라인몰(2006~) · 취급가 $6~30 저가존</td><td class="dt">인바운드 샘플 요청 (배송비 부담 의사) · MSRP 미스매치 주의</td><td class="dt">샘플 발송 + 가격 포지셔닝 답장</td></tr>

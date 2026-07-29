@@ -10,26 +10,67 @@
   }
   @media(prefers-color-scheme:dark){:root{--bg:#1b1a17;--card:#252420;--ink:#f1efe8;--mut:#a8a69d;--line:#3a382f;--soft:#2c2b27;--gb:#0f3d31;--gd:#9fe1cb;--ab:#3d2c0a;--ad:#fac775;--rb:#3d1414;--rd:#f09595;--bb:#0c2e4f;--bd:#b5d4f4;}}
   *{box-sizing:border-box;margin:0;padding:0}
-  body{background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Noto Sans KR",sans-serif;line-height:1.55;padding:26px 20px 40px;max-width:1080px;margin:0 auto}
+  body{background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Noto Sans KR",sans-serif;line-height:1.55;padding:26px 20px 40px;max-width:1060px;margin:0 auto}
   h1{font-size:21px;font-weight:700;letter-spacing:-.01em}
   h2{font-size:12.5px;font-weight:700;color:var(--mut);letter-spacing:.06em;text-transform:uppercase;margin:24px 0 10px}
   .sub{color:var(--mut);font-size:12.5px;margin-top:3px}
+  .grid{display:grid;gap:12px}
+  .g3{grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}
+  .g2{grid-template-columns:repeat(auto-fit,minmax(330px,1fr))}
   .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 17px}
   .lbl{font-size:11.5px;color:var(--mut);font-weight:600;letter-spacing:.02em}
+  .dot{display:inline-block;width:9px;height:9px;border-radius:50%;flex:none}
+  .ch{font-size:10.5px;font-weight:700;padding:2px 8px;border-radius:20px;white-space:nowrap;vertical-align:middle}
+  .g_{background:var(--gb);color:var(--gd)} .a_{background:var(--ab);color:var(--ad)} .r_{background:var(--rb);color:var(--rd)} .b_{background:var(--bb);color:var(--bd)}
   .big{font-size:25px;font-weight:700;letter-spacing:-.01em}
   .big small{font-size:12px;color:var(--mut);font-weight:500}
-  .dot{display:inline-block;width:9px;height:9px;border-radius:50%;flex:none}
-  .ch{display:inline-block;font-size:10.5px;font-weight:700;padding:2px 8px;border-radius:20px;white-space:nowrap;vertical-align:middle}
-  .g_{background:var(--gb);color:var(--gd)} .a_{background:var(--ab);color:var(--ad)} .r_{background:var(--rb);color:var(--rd)} .b_{background:var(--bb);color:var(--bd)}
-  /* 뼈대 수치 스트립 (L1 own) */
   .own{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px;margin-top:14px}
   .own .card{border-top:3px solid var(--bd);border-radius:0 0 14px 14px}
-  .verdict{font-size:12px;margin-top:10px;padding:8px 12px;border-radius:8px;background:var(--soft);color:var(--ink)}
-  /* 신호등 */
-  .lights{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px}
   .sig{display:flex;align-items:center;gap:8px;font-size:15px;font-weight:700;margin-top:5px}
   .why{font-size:12px;color:var(--mut);margin-top:5px;line-height:1.5}
-  /* KPI */
+  .track{display:flex;gap:6px;flex-wrap:wrap;margin-top:4px}
+  .step{flex:1;min-width:118px;border:1px solid var(--line);border-radius:10px;padding:8px 10px}
+  .step.now{background:var(--bb);border-color:transparent}
+  .step .k{font-size:10.5px;color:var(--mut)} .step.now .k{color:var(--bd)}
+  .step .v{font-size:13.5px;font-weight:700} .step.now .v{color:var(--bd)}
+  .step.stretch{background:var(--soft);border-color:transparent}
+  .gapbar{margin-top:12px;background:var(--soft);border-radius:8px;height:10px;overflow:hidden;position:relative}
+  .gapbar>i{display:block;height:100%;background:var(--b);border-radius:8px}
+  .dq .row{display:flex;gap:10px;align-items:flex-start;padding:9px 0;border-bottom:1px solid var(--line);font-size:13.5px}
+  .dq .row:last-child{border-bottom:0}
+  .tag{font-size:11px;font-weight:700;padding:2px 8px;border-radius:6px;white-space:nowrap;flex:none;margin-top:1px}
+  .team{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+  .team .hd{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:11px 15px;border-bottom:1px solid var(--line);background:var(--soft)}
+  .team .hd .nm{font-size:13.5px;font-weight:700}
+  .team .bd{padding:12px 15px 14px}
+  .ns{display:flex;align-items:baseline;gap:7px}
+  .ns .num{font-size:23px;font-weight:700}
+  .ns .u{font-size:11.5px;color:var(--mut)}
+  .mini{font-size:12.3px;margin-top:9px}
+  .mini .ln{display:flex;justify-content:space-between;gap:8px;padding:3.5px 0;border-top:1px dashed var(--line)}
+  .mini .ln:first-of-type{border-top:0}
+  .mini .ln>span:first-child{color:var(--mut)}
+  .verdict{font-size:11.5px;margin-top:9px;padding:6px 10px;border-radius:8px;background:var(--soft)}
+  a.full{font-size:11.5px;color:var(--b);text-decoration:none;font-weight:600}
+  a.full:hover{text-decoration:underline}
+  .ms{display:flex;gap:10px;flex-wrap:wrap}
+  .ms .m{flex:1;min-width:150px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:10px 13px;font-size:12.5px}
+  .ms .m b{display:block;font-size:13px}
+  .foot{font-size:11px;color:var(--mut);margin-top:24px;border-top:1px solid var(--line);padding-top:12px;line-height:1.7}
+
+  /* hero banner — 공유 키트 신규 컴포넌트 (2026-07-24). 판정을 최상단에 강제. */
+  .hero{border-radius:16px;padding:20px 22px;margin:14px 0 20px;border:1px solid var(--line)}
+  .hero.hero-green{background:var(--gb);border-color:transparent}
+  .hero.hero-amber{background:var(--ab);border-color:transparent}
+  .hero.hero-red{background:var(--rb);border-color:transparent}
+  .hero-label{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;opacity:.75}
+  .hero-value{font-size:32px;font-weight:800;margin-top:4px}
+  .hero-threshold{font-size:15px;font-weight:600;opacity:.7;margin-left:8px}
+  .hero-why{font-size:13px;margin-top:8px;opacity:.85;line-height:1.5}
+  .hero-green .hero-label,.hero-green .hero-value,.hero-green .hero-why{color:var(--gd)}
+  .hero-amber .hero-label,.hero-amber .hero-value,.hero-amber .hero-why{color:var(--ad)}
+  .hero-red .hero-label,.hero-red .hero-value,.hero-red .hero-why{color:var(--rd)}
+  .lights{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px}
   .kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px}
   .kpi{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 17px}
   .kv{font-size:24px;font-weight:700;letter-spacing:-.01em}.kv .s{font-size:13px;color:var(--mut);font-weight:500}
@@ -40,23 +81,20 @@
   .goal{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 17px;margin-top:12px}
   .gbar{height:10px;background:var(--soft);border-radius:8px;overflow:hidden;margin:10px 0}
   .gfill{height:100%;background:var(--b);border-radius:8px}
-  /* 표 */
   table{width:100%;border-collapse:separate;border-spacing:0;font-size:13px;background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden}
   td,th{padding:8px 12px;border-bottom:1px solid var(--line);text-align:left}
   th{font-size:11.5px;color:var(--mut);background:var(--soft);font-weight:600;letter-spacing:.02em}
   tr:last-child td{border-bottom:0}
   .r{text-align:right}
-  /* 차트 */
   .trend{display:flex;align-items:flex-end;gap:8px;height:130px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px}
   .bar{flex:1;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;height:100%}
   .bar .fill{width:55%;background:var(--b);border-radius:3px 3px 0 0;min-height:2px}
   .bar .bu{font-size:10px;margin-top:3px}.bar .bd{font-size:10px;color:var(--mut)}
-  /* 자동화 */
   .arow{display:flex;gap:12px;align-items:flex-start;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:10px 14px;margin-bottom:8px}
   .ak{min-width:80px;font-size:13px;font-weight:600}
   .chip{display:inline-block;background:var(--soft);border-radius:6px;padding:3px 8px;margin:2px;font-size:11px}
-  .foot{color:var(--mut);font-size:11px;margin-top:24px;border-top:1px solid var(--line);padding-top:12px;line-height:1.7}
   .cols{display:grid;grid-template-columns:1fr 1fr;gap:14px}@media(max-width:720px){.cols{grid-template-columns:1fr}}
+
 </style></head><body>
 <!--UNAV--><div style="position:sticky;top:0;z-index:99;background:#fff;border-bottom:1px solid #e6e3da;margin:-26px -20px 18px;padding:9px 20px;display:flex;gap:4px;flex-wrap:wrap;align-items:center;font-size:12.5px">
 <span style="font-weight:800;margin-right:8px">VDVIA</span>
@@ -69,7 +107,13 @@
 <a href="https://lemonderma-perf-admin.pages.dev/" style="text-decoration:none;color:inherit;padding:4px 10px;border-radius:8px">🟢 제품성장 ↗</a>
 </div>
 <h1>VDVIA 운영 건강 보고서 <span class="ch b_">전략기획 관리</span></h1>
-<div class="sub">경영지원 → 전략기획(대표 직속) · 생성 2026-07-20 · 목표 매출 1,000억</div>
+<div class="sub">경영지원 → 전략기획(대표 직속) · 생성 2026-07-29 · 목표 매출 1,000억</div>
+
+<div class="hero hero-amber">
+  <div class="hero-label">정부지원 확보 (3축 중 1 — 서류SLA·재고는 아래 참조)</div>
+  <div class="hero-value">2건 <span class="hero-threshold">vs 목표 3건</span></div>
+  <div class="hero-why">₩7천만 확보. 2026-10-31 소진 소진 임박 · 추진 파이프라인 7건.</div>
+</div>
 
 <!-- 뼈대 수치 스트립 -->
 <div class="own">
@@ -89,13 +133,13 @@
     <div class="why"><span class="ch a_">추정</span> 감소가 맞는 방향</div>
   </div>
 </div>
-<div class="verdict">방향 판정: <span class="ch a_">⚠ 주의</span> — 마감(2026-07-10 분담금 입금) 사수·재고일수 감소가 맞는 방향, 서류가 영업 병목되면 어긋남</div>
+<div class="verdict">방향 판정: <span class="ch a_">⚠ 주의</span> — 마감(2026-10-31 소진) 사수·재고일수 감소가 맞는 방향, 서류가 영업 병목되면 어긋남</div>
 
 <h2>1 · 기능별 신호등</h2>
-<div class="lights"><div class="card"><div class="lbl">💰 현금·재무</div><div class="sig"><span class="dot" style="background:var(--a)"></span>주의</div><div class="why">입금대기 $6,225 · 완료 $0 · 연체 0건 · 확인필요 1건 · 일일 P&L 스냅샷 없음/7일+ stale · 런웨이=대표 별도</div><div style="margin-top:8px"><span class="ch g_">측정</span></div></div><div class="card"><div class="lbl">🚚 물류·재고</div><div class="sig"><span class="dot" style="background:var(--g)"></span>양호</div><div class="why">재고 4,027개 · 최단 재발주 D-106.9 · 경보 0건 · 묶인자본 ₩18.0M</div><div style="margin-top:8px"><span class="ch g_">측정</span></div></div><div class="card"><div class="lbl">🏛️ 정부지원</div><div class="sig"><span class="dot" style="background:var(--a)"></span>주의</div><div class="why">선정 2건 · 2026-07-10 분담금 입금 · 환급파이프 $5,025+</div><div style="margin-top:8px"><span class="ch a_">추정</span></div></div><div class="card"><div class="lbl">⚙️ 운영자동화</div><div class="sig"><span class="dot" style="background:var(--g)"></span>양호</div><div class="why">CGETC ERP 10분 수집 정상 · 이상 13건 감지</div><div style="margin-top:8px"><span class="ch g_">측정</span></div></div></div>
+<div class="lights"><div class="card"><div class="lbl">💰 현금·재무</div><div class="sig"><span class="dot" style="background:var(--g)"></span>양호</div><div class="why">입금대기 $8,545 · 완료 $5,600 · 연체 0건 · 30일 매출 $4,759 · 상품GM 74%(광고·물류비 미반영, 2026-07-29) · 런웨이=대표 별도</div><div style="margin-top:8px"><span class="ch g_">측정</span></div></div><div class="card"><div class="lbl">🚚 물류·재고</div><div class="sig"><span class="dot" style="background:var(--g)"></span>양호</div><div class="why">재고 3,962개 · 소진 여유 · 묶인자본 ₩17.7M · 재발주 감시 미가동</div><div style="margin-top:8px"><span class="ch a_">추정</span></div></div><div class="card"><div class="lbl">🏛️ 정부지원</div><div class="sig"><span class="dot" style="background:var(--a)"></span>주의</div><div class="why">선정 2건 · 2026-10-31 소진 · 환급파이프 $5,025+ · 추진 7건(2026-08-07 물류지원 2차 (18시) — 주의: 기존 기록 9/16은 오류, 사이트 배너 기준 8/7)</div><div style="margin-top:8px"><span class="ch a_">추정</span></div></div><div class="card"><div class="lbl">⚙️ 운영자동화</div><div class="sig"><span class="dot" style="background:var(--g)"></span>양호</div><div class="why">CGETC ERP 10분 수집 정상 · 이상 13건 감지</div><div style="margin-top:8px"><span class="ch g_">측정</span></div></div></div>
 
 <h2>2 · 팀별 북극성 (회사 매출로 올리는 단일 숫자)</h2>
-<table><tr><th>팀</th><th>북극성 기여</th><th class="r">현재</th><th class="r">목표</th><th>측정</th><th>근거</th></tr><tr><td><b>30_growth 제품성장</b></td><td>주간 유료 순매출</td><td class="r"><b>$952/주</b></td><td class="r mut">—</td><td><span class="ch a_">추정</span></td><td class="mut" style="font-size:11px">Amazon🟢만 측정 · TikTok/Shopee 매출 추적 없음(🔴)</td></tr><tr><td><b>20_product 제품개발</b></td><td>클레임 자산 readiness%</td><td class="r"><b>43% (3/7)</b></td><td class="r mut">100%</td><td><span class="ch g_">측정</span></td><td class="mut" style="font-size:11px">대시보드 신설 · 외부임상 0/2·비건PDRN은 🔴깜깜</td></tr><tr><td><b>40_sales 해외영업</b></td><td>B2B 파이프라인$ · 체결PO</td><td class="r"><b>$— / PO 1</b></td><td class="r mut">—</td><td><span class="ch r_">깜깜</span></td><td class="mut" style="font-size:11px">성과표 전환 · 파이프라인$ 깜깜(엔진 정지) · PO 1=IO Beauty</td></tr><tr><td><b>50_operations 경영지원</b></td><td>정부지원+서류SLA+재고 (3축)</td><td class="r"><b>정부 2건·₩7천만 / 재고 4,027개 / SLA 실측대기</b></td><td class="r mut">정부 3건 · SLA<2일 · 재고 DI<90일</td><td><span class="ch a_">추정</span></td><td class="mut" style="font-size:11px">정부 🟢·재고 🟡 가동 · CIPL 생성기 가동(7/7)·발행 SLA 실측 대기 🟡 · 예산=대표 별도관리</td></tr></table>
+<table><tr><th>팀</th><th>북극성 기여</th><th class="r">현재</th><th class="r">목표</th><th>측정</th><th>근거</th></tr><tr><td><b>30_growth 제품성장</b></td><td>주간 유료 순매출</td><td class="r"><b>$1,189/주</b></td><td class="r mut">—</td><td><span class="ch a_">추정</span></td><td class="mut" style="font-size:11px">Amazon🟢만 측정 · TikTok/Shopee 매출 추적 없음(🔴)</td></tr><tr><td><b>20_product 제품개발</b></td><td>클레임 자산 readiness %</td><td class="r"><b>43%</b></td><td class="r mut">100%</td><td><span class="ch g_">측정</span></td><td class="mut" style="font-size:11px">운영 3축 모두 미해소 — 있음(임상 착수 0) · 진짜(라이브 불일치 2건: Painless·Pantheonl) · 제때(P1 7건·기한경과 2건). 병목=파트너 회신, 메조팜은 소통 사각. 신규: 로트별 표기차이(구v2)로 유통사 CS 문의 발생 — CS Q&A·로트사양확인서 대응문서 완비(2026-07-29, 4층구조 S1에서 team-card 미반영 발견해 정정)</td></tr><tr><td><b>40_sales 해외영업</b></td><td>B2B 파이프라인 $ + 체결 PO</td><td class="r"><b>$58,000 / PO 4건</b></td><td class="r mut">—</td><td><span class="ch a_">추정</span></td><td class="mut" style="font-size:11px">아웃바운드 엔진 가동 3일차 — 누적 발송 66건(목표 25 초과 달성)·반송률 검증 후 0%·오늘 첫 회신 2건. DB 2,112곳·검증통과 발송가능 410곳 인프라 완성. launchd 자동발송 3창(10:00·14:30·19:00) + 30분 주기 회신감시 가동 중</td></tr><tr><td><b>50_operations 경영지원</b></td><td>정부지원+서류SLA+재고 (3축)</td><td class="r"><b>정부 2건·₩7천만 / 재고 3,962개 / SLA 실측대기</b></td><td class="r mut">정부 3건 · SLA<2일 · 재고 DI<90일</td><td><span class="ch a_">추정</span></td><td class="mut" style="font-size:11px">정부 🟢·재고 🟡 가동 · CIPL 생성기 가동(7/7)·발행 SLA 실측 대기 🟡 · 예산=대표 별도관리</td></tr></table>
 <div class="mut" style="font-size:11px;margin-top:6px">표준 5칸 계약 ① · 값이 아직 없으면 "—" + <span class="ch r_">깜깜</span> (날조 금지). 측정 무결성: <span class="ch g_">측정</span> <span class="ch a_">추정</span> <span class="ch r_">깜깜</span>.</div>
 
 <h2>3 · 1000억 정렬 선행지표 (목표/현재/측정)</h2>
@@ -105,43 +149,45 @@
       <div class="knote">예산·런웨이 = 대표 별도 대시보드 관리 (경영지원 북극성 아님)</div></div>
     <div class="kpi"><div class="kv">₩10M<span class="s">+</span></div><div class="kl">정부지원 확보 한도(비희석)</div>
       <div class="krow"><span class="tgt">목표 정부 3건 확보</span><span class="ch a_">추정</span></div>
-      <div class="knote">확보 2건 · ₩7천만 · 정본 memory/gov_state.json</div></div>
+      <div class="knote">확보 2건 · ₩7천만
+      · 추진 파이프라인 <b>7건</b> (최근접: 2026-08-07 물류지원 2차 (18시) — 주의: 기존 기록 9/16은 오류, 사이트 배너 기준 8/7)
+      · 정본 memory/gov_state.json</div></div>
     <div class="kpi"><div class="kv mut">실측대기</div><div class="kl">수출서류 SLA(CIPL 처리일)</div>
       <div class="krow"><span class="tgt">목표 &lt;2일</span><span class="ch a_">추정</span></div>
       <div class="knote">CIPL 생성기 가동(7/7, run.py make_cipl) — 발행 SLA는 사용 누적 후 실측</div></div>
-    <div class="kpi"><div class="kv ok">+28%</div><div class="kl">매출 MoM 성장률</div>
+    <div class="kpi"><div class="kv ok">+131%</div><div class="kl">매출 MoM 성장률</div>
       <div class="krow"><span class="tgt">목표 +30%</span><span class="ch a_">추정</span></div>
       <div class="knote">Amazon🟢 · CGETC🟡 · TikTok/Shopee 미추적🔴</div></div>
-    <div class="kpi"><div class="kv mut">—</div><div class="kl">단위경제(마진율·물류비%)</div>
-      <div class="krow"><span class="tgt">목표 7월 완전 실측</span><span class="ch r_">깜깜</span></div>
-      <div class="knote">마진계산 이니셔티브 진행중 — 실측 미완</div></div>
-    <div class="kpi"><div class="kv">₩18.0M</div><div class="kl">재고 묶인 자본</div>
+    <div class="kpi"><div class="kv">GM 74%</div><div class="kl">단위경제(마진율·물류비%)</div>
+      <div class="krow"><span class="tgt">목표 7월 완전 실측</span><span class="ch a_">추정</span></div>
+      <div class="knote">상품마진 실측(01-finance) — 광고·풀필먼트비 미반영, 완전 단위경제는 마진계산 이니셔티브</div></div>
+    <div class="kpi"><div class="kv">₩17.7M</div><div class="kl">재고 묶인 자본</div>
       <div class="krow"><span class="tgt">목표 재고 DI&lt;90일</span><span class="ch a_">추정</span></div>
       <div class="knote">한국 입고중 2,000개=수기 상수, 원가=추정</div></div>
     </div>
 <div class="goal">
   <div style="display:flex;justify-content:space-between;font-size:13px">
     <span>1,000억 진행 (연환산 run-rate)</span>
-    <span class="mut">₩0.43억 / 1,000억 · 0.043%</span></div>
-  <div class="gbar"><div class="gfill" style="width:0.04%"></div></div>
+    <span class="mut">₩0.78억 / 1,000억 · 0.078%</span></div>
+  <div class="gbar"><div class="gfill" style="width:0.08%"></div></div>
   <div class="mut" style="font-size:11px">현재는 런칭 초기 — 전략팀이 *단위경제·성장률* 중심으로 스케일 지표를 설정할 단계.</div>
 </div>
 
 <h2>4 · 전략팀 의사결정 대기 — CEO 결정큐</h2>
-<table><tr><th></th><th>안건</th><th>상세</th><th>축</th></tr><tr><td><span class="dot" style="background:var(--r)"></span></td><td><b>물류바우처 분담금 450만 입금</b></td><td class="mut">~7/10 · 미입금=사용포기</td><td><span class="ch b_">현금</span></td></tr><tr><td><span class="dot" style="background:var(--a)"></span></td><td><b>풀필먼트 정산 가능 여부 확인</b></td><td class="mut">민원 055-752-8580</td><td><span class="ch b_">정부지원</span></td></tr><tr><td><span class="dot" style="background:var(--a)"></span></td><td><b>고비즈 승인금액 + 바우처 협약금액 확인</b></td><td class="mut">포털 로그인 (대표)</td><td><span class="ch b_">정부지원</span></td></tr><tr><td><span class="dot" style="background:var(--a)"></span></td><td><b>한국 입고중 2,000개 행선지 결정</b></td><td class="mut">美재배송 vs 한국/태국 판매</td><td><span class="ch b_">물류</span></td></tr><tr><td><span class="dot" style="background:var(--a)"></span></td><td><b>CGETC 5월 인보이스 #1055568 확보</b></td><td class="mut">환급 총액 완성</td><td><span class="ch b_">정부지원</span></td></tr></table>
+<table><tr><th></th><th>안건</th><th>상세</th><th>축</th></tr><tr><td><span class="dot" style="background:var(--a)"></span></td><td><b>풀필먼트 정산 가능 여부 확인</b></td><td class="mut">민원 055-752-8580</td><td><span class="ch b_">정부지원</span></td></tr><tr><td><span class="dot" style="background:var(--a)"></span></td><td><b>고비즈 승인금액 + 바우처 협약금액 확인</b></td><td class="mut">포털 로그인 (대표)</td><td><span class="ch b_">정부지원</span></td></tr><tr><td><span class="dot" style="background:var(--a)"></span></td><td><b>한국 입고중 2,000개 행선지 결정</b></td><td class="mut">美재배송 vs 한국/태국 판매</td><td><span class="ch b_">물류</span></td></tr><tr><td><span class="dot" style="background:var(--a)"></span></td><td><b>CGETC 5월 인보이스 #1055568 확보</b></td><td class="mut">환급 총액 완성</td><td><span class="ch b_">정부지원</span></td></tr></table>
 
 <h2>5 · 월별 매출 · 채널</h2>
 <div class="cols">
-  <div><div class="mut" style="font-size:12px;margin-bottom:6px">월별 통합 매출 (FBA+CGETC, USD)</div><div class="trend"><div class="bar"><div class="fill" style="height:19%"></div><div class="bu">$4.1k</div><div class="bd">12</div></div><div class="bar"><div class="fill" style="height:100%"></div><div class="bu">$20.6k</div><div class="bd">03</div></div><div class="bar"><div class="fill" style="height:12%"></div><div class="bu">$2.6k</div><div class="bd">04</div></div><div class="bar"><div class="fill" style="height:4%"></div><div class="bu">$1.0k</div><div class="bd">05</div></div><div class="bar"><div class="fill" style="height:9%"></div><div class="bu">$2.0k</div><div class="bd">06</div></div><div class="bar"><div class="fill" style="height:12%"></div><div class="bu">$2.6k</div><div class="bd">07</div></div></div></div>
-  <div><div class="mut" style="font-size:12px;margin-bottom:6px">채널별 매출 (CGETC ERP 누적, $28,244)</div>
-    <table><tr><th>채널</th><th class="r">매출</th></tr><tr><td>기타</td><td class="r">$27,577</td></tr><tr><td>tiktok_shop</td><td class="r">$367</td></tr><tr><td>shopify</td><td class="r">$299</td></tr></table></div>
+  <div><div class="mut" style="font-size:12px;margin-bottom:6px">월별 통합 매출 (FBA+CGETC, USD)</div><div class="trend"><div class="bar"><div class="fill" style="height:19%"></div><div class="bu">$4.1k</div><div class="bd">12</div></div><div class="bar"><div class="fill" style="height:100%"></div><div class="bu">$20.6k</div><div class="bd">03</div></div><div class="bar"><div class="fill" style="height:12%"></div><div class="bu">$2.6k</div><div class="bd">04</div></div><div class="bar"><div class="fill" style="height:4%"></div><div class="bu">$1.0k</div><div class="bd">05</div></div><div class="bar"><div class="fill" style="height:9%"></div><div class="bu">$2.0k</div><div class="bd">06</div></div><div class="bar"><div class="fill" style="height:22%"></div><div class="bu">$4.7k</div><div class="bd">07</div></div></div></div>
+  <div><div class="mut" style="font-size:12px;margin-bottom:6px">채널별 매출 (CGETC ERP 누적, $28,247)</div>
+    <table><tr><th>채널</th><th class="r">매출</th></tr><tr><td>기타</td><td class="r">$27,580</td></tr><tr><td>tiktok_shop</td><td class="r">$367</td></tr><tr><td>shopify</td><td class="r">$299</td></tr></table></div>
 </div>
 
 <h2>6 · 재고</h2>
 <div class="card">
   <div style="display:flex;flex-wrap:wrap;gap:18px;align-items:baseline">
-    <span><span class="lbl">총 재고</span> <b style="font-size:19px">4,027개</b></span>
-    <span><span class="lbl">묶인 자본(원가 기준)</span> <b style="font-size:19px">₩18.0M</b> <span class="ch a_">추정</span></span>
+    <span><span class="lbl">총 재고</span> <b style="font-size:19px">3,962개</b></span>
+    <span><span class="lbl">묶인 자본(원가 기준)</span> <b style="font-size:19px">₩17.7M</b> <span class="ch a_">추정</span></span>
   </div>
   <div class="why">구성: Amazon FBA(실측) + CGETC 3PL(실측) + 한국 입고중 2,000개(수기 상수) · 원가=추정 단가.</div>
 </div>
@@ -149,6 +195,6 @@
 <h2>7 · 자동화 성숙도</h2>
 <div class="arow"><div class="ak">🤖 자동 <b>5</b></div><div><span class="chip">FBA 재고·매출 스캔(SP-API)</span><span class="chip">CGETC ERP 수집(10분 launchd)</span><span class="chip">정부공고 스캔</span><span class="chip">재고 대시보드</span><span class="chip">운영 건강 보고서</span></div></div><div class="arow"><div class="ak">👥 위임 <b>0</b></div><div><span class="mut">—</span></div></div><div class="arow"><div class="ak">🎯 사람 <b>4</b></div><div><span class="chip">실제 발주</span><span class="chip">정산서류 제출</span><span class="chip">분담금 입금</span><span class="chip">협약 체결</span></div></div>
 
-<div class="foot">소스: Amazon SP-API(FBA 실시간) · CGETC ERP erp.db(수집 2026-07-19T22:51:36+00:00, 주문 804·출고 795) · 정부지원 카드(수기).
+<div class="foot">소스: Amazon SP-API(FBA 실시간) · CGETC ERP erp.db(수집 2026-07-28T22:45:05+00:00, 주문 805·출고 797) · 정부지원 카드(수기).
 측정배지 <span class="ch g_">측정</span> <span class="ch a_">추정</span> <span class="ch r_">깜깜</span> · 재무(런웨이·마진)·Shopify 채널은 연결 시 자동 대체.</div>
 </body></html>
