@@ -251,6 +251,39 @@
     <span class="ch b_">자체완결 페이지</span>
   </div>
 
+  <!-- 퍼널 자동집계 (build #2 — funnel_report.py) -->
+  <h2>B2B 퍼널 자동집계 — 컨택발송 → 응답 → 미팅·상담 → 샘플/트라이얼 → PO</h2>
+  <div class="card">
+    <div class="track">
+      <div class="step">
+        <div class="k">컨택발송</div>
+        <div class="v">426</div>
+        <div class="e">기준 단계</div>
+      </div>
+      <div class="step">
+        <div class="k">응답</div>
+        <div class="v">6</div>
+        <div class="e">통과율 1.4%</div>
+      </div>
+      <div class="step">
+        <div class="k">미팅·상담</div>
+        <div class="v">3</div>
+        <div class="e">통과율 50.0%</div>
+      </div>
+      <div class="step">
+        <div class="k">샘플/트라이얼</div>
+        <div class="v">5</div>
+        <div class="e">통과율 166.7%</div>
+      </div>
+      <div class="step now">
+        <div class="k">PO</div>
+        <div class="v">5</div>
+        <div class="e">통과율 100.0%</div>
+      </div>
+    </div>
+    <div class="why" style="margin-top:8px">응답·미팅·상담·샘플/트라이얼은 distributors.md 서사 키워드 휴리스틱 — 놓치거나 과다잡을 수 있음. 확정 필요하면 stages[].manual_override 를 채워 넣을 것(재실행해도 보존됨). 컨택발송·PO는 send_log·pipeline_state 실측/수기 정본 그대로. · 갱신 2026-08-08 (기준일 2026-08-05) · 정본: memory/funnel_state.json · 빌드: funnel_report.py</div>
+  </div>
+
   <div class="foot">
     체계: pipeline_state.json (수기 정본) → build_dashboard.py → 이 화면 + team-card.json → 전략기획 L1 (취합·판단) → 결정큐 (환류).
     측정배지 <span class="ch g_">측정</span> <span class="ch a_">추정</span> <span class="ch r_">깜깜</span> — 발송 0건은 <b>날조 아닌 실측 0</b>.

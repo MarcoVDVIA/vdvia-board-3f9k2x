@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>VDVIA 전략기획 대시보드 (L1)</title>
+<title>VDVIA CEO 홈</title>
 <style>
   :root{
     --bg:#faf9f5; --card:#ffffff; --ink:#1c1b18; --mut:#6b6a64; --line:#e6e3da; --soft:#f1efe8;
@@ -74,79 +74,56 @@
   .hero-green .hero-label,.hero-green .hero-value,.hero-green .hero-why{color:var(--gd)}
   .hero-amber .hero-label,.hero-amber .hero-value,.hero-amber .hero-why{color:var(--ad)}
   .hero-red .hero-label,.hero-red .hero-value,.hero-red .hero-why{color:var(--rd)}
+  /* CEO 홈 — 모바일 우선(2026-08-08 L1→CEO홈 개편). 폭 480px 기준 한 컬럼·큰 터치 타깃. */
+  .ceo{display:flex;flex-direction:column;gap:14px;margin-top:14px}
+  .ceo-block{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px 18px}
+  .ceo-block .lbl{font-size:12px;color:var(--mut);font-weight:700;letter-spacing:.03em;margin-bottom:9px;text-transform:uppercase}
+  .ceo-more{font-size:12px;color:var(--mut);padding:8px 4px 0}
+  .trow{display:flex;flex-wrap:wrap;align-items:center;gap:8px 10px;padding:12px 4px;border-bottom:1px solid var(--line);text-decoration:none;color:var(--ink);min-height:44px}
+  .trow:last-of-type{border-bottom:0}
+  .trow-nm{font-weight:700;font-size:13.5px;flex:none}
+  .trow-vd{font-size:12px;color:var(--mut);flex-basis:100%;line-height:1.45}
+  .moneyline{display:flex;justify-content:space-between;padding:7px 2px;font-size:13px;border-top:1px dashed var(--line);margin-top:6px}
+  details.drill{margin-top:8px}
+  details.drill>summary{cursor:pointer;font-size:12px;font-weight:700;color:var(--b);list-style:none;padding:11px 4px;min-height:40px;display:flex;align-items:center}
+  details.drill>summary::-webkit-details-marker{display:none}
+  details.drill>summary::before{content:"▸ ";margin-right:3px}
+  details.drill[open]>summary::before{content:"▾ "}
+  details.drill>.dcontent{padding-top:6px}
+  details.page{margin:22px 0 4px;border-top:1px solid var(--line);padding-top:14px}
+  details.page>summary{cursor:pointer;font-size:12.5px;font-weight:700;color:var(--mut);list-style:none;padding:8px 2px;min-height:40px;display:flex;align-items:center}
+  details.page>summary::-webkit-details-marker{display:none}
+  details.page>summary::before{content:"▸ 더 보기 — ";}
+  details.page[open]>summary::before{content:"▾ 접기 — ";}
+  @media(max-width:480px){
+    body{padding:16px 14px 32px;max-width:480px}
+    h1{font-size:19px}
+    .grid.g2,.grid.g3,.own{grid-template-columns:1fr}
+    .ceo-block{padding:14px 15px}
+    a.full{display:inline-block;padding:7px 0;min-height:30px}
+  }
+
 </style>
 </head>
 <body>
-  <h1>VDVIA 전략기획 대시보드 <span class="ch b_">L1</span></h1>
-  <div class="sub">2026-08-08 빌드 · 신스 레이어: 수집 → 취합 → 판단 → 환류 · 성장=자율 관측 / 개발·영업·운영=직접 관리</div>
+  <h1>VDVIA CEO 홈 <span class="ch b_">L1</span></h1>
+  <div class="sub">2026-08-09 빌드 · 3층 구조: Slack 브리핑 → CEO 홈(이 화면) → 팀 대시보드 드릴다운</div>
 
-  <div class="hero hero-red">
-  <div class="hero-label">런레이트 갭 — 지금 페이스로 가면</div>
-  <div class="hero-value">16× 부족 <span class="hero-threshold">vs 1× (필요 페이스)</span></div>
-  <div class="hero-why">YTD ₩35M = Y1 3억의 12%. 현재 월 ₩2.7M vs 필요 월 ₩44M. 유일한 성장 엔진 = Amazon (4월 $28 → 5월 $439 → 6월 $1,668 → 7월 페이스 ~$5.6k, 매월 ~4배). Q3 = 이 불씨의 원인 규명·재현 증명에 자원 집중 — 증명 전 신규 시장 대액 투입 보류.</div>
-</div>
-
-  <!-- ① 전략기획 자체 지표 (팀 뼈대) -->
-  <div class="own">
-    <div class="card">
-      <div class="lbl">북극성 · 측정 무결성 — 깜깜 지표</div>
-      <div class="big">5<small> 개 🔴 → 목표 0</small></div>
-      <div class="why">시딩→유료 귀속률 · B2B 펀널 통과율 (발송 개시 3일차 — 표본 축적 중) · B2B PO 금액 (3건 중 2건 미기록) · 수출서류 SLA (CIPL/PI) · D2C 퍼널 — 측정 포기 확정(8/3, Shopify 연결 안 함·Amazon 단독 대체). <b>매달 줄면 맞는 방향.</b></div>
+  <div class="ceo">
+    <div class="ceo-block">
+      <div class="lbl">🎯 오늘의 결정</div>
+      <div class="dq">
+        <div class="row"><span class="tag r_">20 결정</span><span>임상 3종 트랙 견적·발주 — ①PIT(1차자극) ②민감성 사용적합성 ③독일 더마테스트 Excellent <span style="color:var(--mut)">— D-3 (8/12)</span></span></div><div class="row"><span class="tag a_">20 결정</span><span>민감성 피부 테스트 대상 SKU 선별 — 전 SKU 일괄 vs 크림·마스크 한정 <span style="color:var(--mut)">— D-3 (8/12)</span></span></div><div class="row"><span class="tag r_">20 승인</span><span>임상 3종 트랙(PIT·민감성·더마테스트 Excellent) 진행 확정(8/3) — 견적요청 발송본 준비, 발송 컨펌 대기</span></div><div class="row"><span class="tag a_">40 입력</span><span>🇸🇦 사우디 B2B 개시(8/5) — Tier1 실사 완료(Whites·Nahdi·Al-Dawaa). 다음: Nahdi 벤더포털 등록 요건 리서치(Claude) → 포털 계정 등록(Marco 직접) · Whites 바이어 담당 실사</span></div><div class="row"><span class="tag r_">50 승인</span><span>Lemonshot 세럼 재발주 시점 경과(D-10.3) — FBA 324+태국 1000, 소진까지 79.7일 · 리드타임 90일(추정)</span></div>
+      </div>
+      
     </div>
-    <div class="card">
-      <div class="lbl">결정큐 — 대기·처리 속도</div>
-      <div class="big">9<small> 건 대기 · 0건 기한 지남</small></div>
-      <div class="why">전략 안건 + 팀 블로커 자동 합류(보고계약 ④). <b>안 밀리면 맞는 방향.</b></div>
-    </div>
-  </div>
-
-  <h2>전사 신호등 — 판단</h2>
-  <div class="grid g3">
-    <div class="card">
-      <div class="lbl">현금</div>
-      <div class="sig"><span class="dot" style="background:var(--a)"></span>주의</div>
-      <div class="why">물류바우처 분담금 450만 납부 완료(2026-07-20 확인) · 예산·런웨이 = 대표 별도 관리</div>
-    </div>
-    <div class="card">
-      <div class="lbl">전환</div>
-      <div class="sig"><span class="dot" style="background:var(--r)"></span>적신호</div>
-      <div class="why">6월 회사 매출 ~$2,050 = 플랜 목표의 21% · MER 1.0(본전 1.59 미달) · 유일한 불씨 = <b>Amazon 3개월 연속 ~4배 성장</b></div>
-    </div>
-    <div class="card">
-      <div class="lbl">방향</div>
-      <div class="sig"><span class="dot" style="background:var(--a)"></span>주의</div>
-      <div class="why">Y1 3억 확정(8/3)·결정큐 청산·Q3 OKR v3 가동 — 남은 것 = Q3 증명(9월 월간 MER≥1.59) · 다크 지표 축소 중(Shopify는 측정 포기로 재분류)</div>
-    </div>
-  </div>
-
-  <h2>1000억 궤도 — 정확한 현재 위치</h2>
-  <div class="card">
-    <div class="track">
-      <div class="step now"><div class="k">2026 YTD 실측</div><div class="v">₩35M (12%)</div></div>
-      <div class="step"><div class="k">Y1 2026</div><div class="v">3억</div></div>
-      <div class="step"><div class="k">Y2 2027</div><div class="v">15~25억</div></div>
-      <div class="step"><div class="k">Y3 2028</div><div class="v">60~100억</div></div>
-      <div class="step stretch"><div class="k">Stretch</div><div class="v">1000억</div></div>
-    </div>
-    <div class="gapbar"><i style="width:12%"></i></div>
-    <div class="why" style="margin-top:8px">Y1 진척 12% · 남은 6개월 필요 <b>월 ₩44M</b> vs 현재 월 ₩2.7M. 유일한 성장 엔진 = Amazon (4월 $28 → 5월 $439 → 6월 $1,668 → 7월 페이스 ~$5.6k, 매월 ~4배). Q3 = 이 불씨의 원인 규명·재현 증명에 자원 집중 — 증명 전 신규 시장 대액 투입 보류.</div>
-  </div>
-
-  <h2>지금 결정할 것 — 결정큐 (전략 안건 + 팀 블로커 자동 합류)</h2>
-  <div class="card dq">
-    <div class="row"><span class="tag b_">20 블로커</span><span>마스크 비건 PDRN 실재·INCI 확인 — 옐로우 마스크(Deep Vita Booster)로 진행 방향 확정(8/3), 처방 내 INCI 확인 지속 <span style="color:var(--mut)">— Zishel/메조팜 회신</span></span></div>
-    <div class="row"><span class="tag b_">20 블로커</span><span>EU 알레르겐 81종 대조 — 서류 제출 완료(8/3), 결과 회신 대기 <span style="color:var(--mut)">— COSMAX/Zishel 회신</span></span></div>
-    <div class="row"><span class="tag b_">20 블로커</span><span>임상 3종 트랙(PIT·민감성·더마테스트 Excellent) 진행 확정(8/3) — 견적요청 발송본 준비, 발송 컨펌 대기 <span style="color:var(--mut)">— Marco 발송 컨펌</span></span></div>
-    <div class="row"><span class="tag b_">40 블로커</span><span>APCC(태국) — 8/4 미팅 성사(노쇼→당일 즉석 재개, Pornpan Regional GM + Niu, 40분). 8/4 밤 자료 발송 완료: TH Terms&amp;Options(옵션1/2/3) PDF+프라이스리스트+브랜드소개·Zishel프로필 링크+LINE ID 공유. 대기: 저쪽 fee schedule·forecast·샘플 배송주소(방콕 Nongchat 재고발 1~2일) <span style="color:var(--mut)">— APCC 회신 대기 → 샘플 발송·옵션 협상</span></span></div>
-    <div class="row"><span class="tag b_">40 블로커</span><span>Beauteers — QVC 수출용 10,000개 건 발생, Beauteers 측 컨펌 미완으로 대응 대기(8/3 Marco). Trial 176개 PO 금액은 여전히 미기록 <span style="color:var(--mut)">— Beauteers 컨펌 대기</span></span></div>
-    <div class="row"><span class="tag b_">40 블로커</span><span>Emh 몽골 세럼 1,000개 — 포워더가 Nongchat 픽업 접촉(8/5) → Marco 출고 승인 + PI VD-MG1-CLM-260805 발행($10,000, 단가$10, EXW 태국, T/T 8월말). 400개 미수금($3,520)은 8/5 입금 완료 확인. 물류비 태국→몽골 70% VDVIA 부담(8/3). 남은 것: 포워더 서류요건 확인 → CI/PL 발행 <span style="color:var(--mut)">— CI/PL 발행</span></span></div>
-    <div class="row"><span class="tag b_">40 블로커</span><span>Tier4 FOC 방식(세럼 FOC7% vs 크림 FOC10%) — 선택지 제시됨, Maral 측 결정 대기(8/3 Marco) <span style="color:var(--mut)">— Maral 회신</span></span></div>
-    <div class="row"><span class="tag b_">40 블로커</span><span>Emh Tier 4 세럼전용 독점계약 확정(7/23 미팅) — 계약서 초안 작성해 송부 필요 <span style="color:var(--mut)">— 계약서 작성</span></span></div>
-    <div class="row"><span class="tag b_">40 블로커</span><span>🇸🇦 사우디 B2B 개시(8/5) — Tier1 실사 완료(Whites·Nahdi·Al-Dawaa). 다음: Nahdi 벤더포털 등록 요건 리서치(Claude) → 포털 계정 등록(Marco 직접) · Whites 바이어 담당 실사 <span style="color:var(--mut)">— 등록 요건 리서치 후 Marco 포털 등록</span></span></div>
-  </div>
-
-  <h2>4팀 관측 — 뼈대 수치 · 방향 판정</h2>
-  <div class="grid g2">
+    <div class="ceo-block">
+      <div class="lbl">팀 신호등</div>
+      <a class="trow" href="https://lemonderma-perf-admin.pages.dev/"><span class="trow-nm">제품성장 · 30</span><span class="ch a_">⚠ 주의</span><span class="trow-vd">실행 온타임·결과 미달. <b>Amazon 3개월 연속 성장 = 유일한 반복가능성 신호</b> — 원인 규명·재현이 Q3 최우선.</span></a><a class="trow" href="https://marcovdvia.github.io/vdvia-board-3f9k2x/product/"><span class="trow-nm">제품개발 · 20</span><span class="ch a_">⚠ 주의</span><span class="trow-vd">기술·인증 강함. <b>P1 적체·임상 정체</b>가 지속되면 어긋남.</span></a><a class="trow" href="https://marcovdvia.github.io/vdvia-board-3f9k2x/sales/"><span class="trow-nm">해외영업 · 40</span><span class="ch g_">🟢 정상</span><span class="trow-vd">아웃바운드 엔진 가동 3일차 — 누적 발송 <b>66건</b>(목표 25 초과)·오늘 첫 회신 2건. 남은 것 = 회신 트리아지 + PO 금액 1건 기입 — 회신이 3일 이상 무응답으로 방치되면 어긋남.</span></a><a class="trow" href="https://marcovdvia.github.io/vdvia-board-3f9k2x/ops/"><span class="trow-nm">경영지원 · 50</span><span class="ch a_">⚠ 주의</span><span class="trow-vd">7/10 마감 사수 + 재고 회전일수 감소가 관건. <b>서류(CIPL/PI)가 영업 병목되면 어긋남.</b></span></a>
+      <details class="drill">
+        <summary>팀별 상세 관측 보기</summary>
+        <div class="dcontent">
+          <div class="grid g2">
 
     <div class="team">
       <div class="hd"><span class="nm">제품성장 · 30 <span class="ch b_" style="font-weight:600">자율 · 관측</span></span><span class="ch a_">⚠ 주의</span></div>
@@ -159,7 +136,7 @@
         </div>
         <div class="verdict">판정: 실행 온타임·결과 미달. <b>Amazon 3개월 연속 성장 = 유일한 반복가능성 신호</b> — 원인 규명·재현이 Q3 최우선.</div>
         <a class="full" href="https://lemonderma-perf-admin.pages.dev/">팀 리포트 →</a>
-        <span style="font-size:10px;color:var(--mut);float:right">관측(수기) · 2026-07-02 <span class="ch r_">스테일 37일</span></span>
+        <span style="font-size:10px;color:var(--mut);float:right">관측(수기) · 2026-07-02 <span class="ch r_">스테일 38일</span></span>
       </div>
     </div>
 
@@ -200,21 +177,101 @@
         <div class="mini">
           <div class="ln"><span>정부지원 확보(건)</span><span>2 / 목표 3 ▲ <span class="ch g_">측정</span></span></div>
           <div class="ln"><span>수출서류 SLA(일)</span><span>— / 목표 2 <span class="ch a_">추정</span></span></div>
-          <div class="ln"><span>재고 총량(개)</span><span>3,870 → <span class="ch a_">추정</span></span></div>
+          <div class="ln"><span>재고 총량(개)</span><span>3,860 → <span class="ch a_">추정</span></span></div>
           <div class="ln"><span>B2B 입금대기($)</span><span>8,545.0 <span class="ch g_">측정</span></span></div>
         </div>
         <div class="verdict">판정: 7/10 마감 사수 + 재고 회전일수 감소가 관건. <b>서류(CIPL/PI)가 영업 병목되면 어긋남.</b></div>
         <a class="full" href="https://marcovdvia.github.io/vdvia-board-3f9k2x/ops/">운영 보고서 →</a>
-        <span style="font-size:10px;color:var(--mut);float:right">team-card · 2026-08-07</span>
+        <span style="font-size:10px;color:var(--mut);float:right">team-card · 2026-08-08</span>
       </div>
     </div>
+          </div>
+        </div>
+      </details>
+    </div>
+    <div class="ceo-block">
+      <div class="lbl">돈 흐름 — 사업비</div>
+      <div class="big">₩6.1M</div>
+      <div class="why">ads_us ₩6.1M · ads_uae ₩0.0M · logistics ₩0.0M · production ₩0.0M · clinical ₩0.0M · other ₩0.0M</div>
+      <div class="moneyline"><span>B2B 입금대기</span><span><b>$8,545</b></span></div>
+      <a class="full" href="https://marcovdvia.github.io/vdvia-board-3f9k2x/ops/">경영지원 대시보드 →</a>
+    </div>
+    <div class="ceo-block">
+      <div class="lbl">다음 마일스톤</div>
+      <div class="ms">
+        <div class="m"><b>D-16 (8/25)</b>Monthly Review — 헬스리뷰·OKR 진척 (7/25분은 8/3 지연 완료)</div>
+    <div class="m"><b>D-53 (10/1)</b>Q3 OKR 판정 — 9월 월간 MER≥본전·재구매 루프·B2B 펀널 baseline</div>
+      </div>
+      
+    </div>
   </div>
+  
+  <details class="page">
+    <summary>전사 신호등 상세·1000억 궤도·다크 지표·전체 결정큐</summary>
+    <div class="dcontent">
 
-  <h2>다가오는 마일스톤</h2>
-  <div class="ms">
-    <div class="m"><b>D-17 (8/25)</b>Monthly Review — 헬스리뷰·OKR 진척 (7/25분은 8/3 지연 완료)</div>
-    <div class="m"><b>D-54 (10/1)</b>Q3 OKR 판정 — 9월 월간 MER≥본전·재구매 루프·B2B 펀널 baseline</div>
-  </div>
+      <div class="hero hero-red">
+  <div class="hero-label">런레이트 갭 — 지금 페이스로 가면</div>
+  <div class="hero-value">16× 부족 <span class="hero-threshold">vs 1× (필요 페이스)</span></div>
+  <div class="hero-why">YTD ₩35M = Y1 3억의 12%. 현재 월 ₩2.7M vs 필요 월 ₩44M. 유일한 성장 엔진 = Amazon (4월 $28 → 5월 $439 → 6월 $1,668 → 7월 페이스 ~$5.6k, 매월 ~4배). Q3 = 이 불씨의 원인 규명·재현 증명에 자원 집중 — 증명 전 신규 시장 대액 투입 보류.</div>
+</div>
+
+      <div class="own">
+        <div class="card">
+          <div class="lbl">북극성 · 측정 무결성 — 깜깜 지표</div>
+          <div class="big">5<small> 개 🔴 → 목표 0</small></div>
+          <div class="why">시딩→유료 귀속률 · B2B 펀널 통과율 (발송 개시 3일차 — 표본 축적 중) · B2B PO 금액 (3건 중 2건 미기록) · 수출서류 SLA (CIPL/PI) · D2C 퍼널 — 측정 포기 확정(8/3, Shopify 연결 안 함·Amazon 단독 대체). <b>매달 줄면 맞는 방향.</b></div>
+        </div>
+        <div class="card">
+          <div class="lbl">결정큐 — 대기·처리 속도</div>
+          <div class="big">5<small> 건 대기 · 0건 기한 지남</small></div>
+          <div class="why">전략 안건 + 팀 블로커 자동 합류(보고계약 ④). <b>안 밀리면 맞는 방향.</b></div>
+        </div>
+      </div>
+
+      <h2>전사 신호등 — 판단</h2>
+      <div class="grid g3">
+        <div class="card">
+      <div class="lbl">현금</div>
+      <div class="sig"><span class="dot" style="background:var(--a)"></span>주의</div>
+      <div class="why">물류바우처 분담금 450만 납부 완료(2026-07-20 확인) · 예산·런웨이 = 대표 별도 관리</div>
+    </div>
+    <div class="card">
+      <div class="lbl">전환</div>
+      <div class="sig"><span class="dot" style="background:var(--r)"></span>적신호</div>
+      <div class="why">6월 회사 매출 ~$2,050 = 플랜 목표의 21% · MER 1.0(본전 1.59 미달) · 유일한 불씨 = <b>Amazon 3개월 연속 ~4배 성장</b></div>
+    </div>
+    <div class="card">
+      <div class="lbl">방향</div>
+      <div class="sig"><span class="dot" style="background:var(--a)"></span>주의</div>
+      <div class="why">Y1 3억 확정(8/3)·결정큐 청산·Q3 OKR v3 가동 — 남은 것 = Q3 증명(9월 월간 MER≥1.59) · 다크 지표 축소 중(Shopify는 측정 포기로 재분류)</div>
+    </div>
+      </div>
+
+      <h2>1000억 궤도 — 정확한 현재 위치</h2>
+      <div class="card">
+        <div class="track">
+          <div class="step now"><div class="k">2026 YTD 실측</div><div class="v">₩35M (12%)</div></div>
+      <div class="step"><div class="k">Y1 2026</div><div class="v">3억</div></div>
+      <div class="step"><div class="k">Y2 2027</div><div class="v">15~25억</div></div>
+      <div class="step"><div class="k">Y3 2028</div><div class="v">60~100억</div></div>
+      <div class="step stretch"><div class="k">Stretch</div><div class="v">1000억</div></div>
+        </div>
+        <div class="gapbar"><i style="width:12%"></i></div>
+        <div class="why" style="margin-top:8px">Y1 진척 12% · 남은 6개월 필요 <b>월 ₩44M</b> vs 현재 월 ₩2.7M. 유일한 성장 엔진 = Amazon (4월 $28 → 5월 $439 → 6월 $1,668 → 7월 페이스 ~$5.6k, 매월 ~4배). Q3 = 이 불씨의 원인 규명·재현 증명에 자원 집중 — 증명 전 신규 시장 대액 투입 보류.</div>
+      </div>
+
+      <h2>지금 결정할 것 — 전체 결정큐 (전략 안건 + 팀 블로커 자동 합류)</h2>
+      <div class="card dq">
+        <div class="row"><span class="tag r_">20 결정</span><span>임상 3종 트랙 견적·발주 — ①PIT(1차자극) ②민감성 사용적합성 ③독일 더마테스트 Excellent <span style="color:var(--mut)">— D-3 (8/12)</span></span></div>
+    <div class="row"><span class="tag a_">20 결정</span><span>민감성 피부 테스트 대상 SKU 선별 — 전 SKU 일괄 vs 크림·마스크 한정 <span style="color:var(--mut)">— D-3 (8/12)</span></span></div>
+    <div class="row"><span class="tag r_">20 승인</span><span>임상 3종 트랙(PIT·민감성·더마테스트 Excellent) 진행 확정(8/3) — 견적요청 발송본 준비, 발송 컨펌 대기</span></div>
+    <div class="row"><span class="tag a_">40 입력</span><span>🇸🇦 사우디 B2B 개시(8/5) — Tier1 실사 완료(Whites·Nahdi·Al-Dawaa). 다음: Nahdi 벤더포털 등록 요건 리서치(Claude) → 포털 계정 등록(Marco 직접) · Whites 바이어 담당 실사</span></div>
+    <div class="row"><span class="tag r_">50 승인</span><span>Lemonshot 세럼 재발주 시점 경과(D-10.3) — FBA 324+태국 1000, 소진까지 79.7일 · 리드타임 90일(추정)</span></div>
+      </div>
+
+    </div>
+  </details>
 
   <div class="foot">
     체계: 팀 대시보드(수집) → 이 화면(취합·판단) → 결정큐(환류) · 매일 08:00 자동 빌드·발행·팀별 Slack 발송.
